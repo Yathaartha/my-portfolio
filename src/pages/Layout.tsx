@@ -4,7 +4,7 @@ import { Outlet, useLocation, useNavigate } from "react-router-dom";
 import {
     Checkmark, CloseButton, Corner, DiamondCheck, DiamondIcon, DiamondOutline, HomepageContainer,
     ModalContainer, ModalOverlay, ModalTitle, NavItem, NavItemCheckmark, NavList, PageButton,
-    SocialIconLink, SocialIcons, TitleDecoration, TitleDivider
+    SocialIconLink, SocialIcons, TitleDecoration, TitleDivider, VideoBackground
 } from "./Layout.css";
 
 const PAGES: { path: string; name: string }[] = [
@@ -36,6 +36,9 @@ function Layout({ pageName: propPageName, children }: LayoutProps) {
 
   return (
     <HomepageContainer>
+      <VideoBackground autoPlay loop muted playsInline>
+        <source src="/bg.webm" type="video/webm" />
+      </VideoBackground>
       {children ?? <Outlet />}
       <SocialIcons>
         <SocialIconLink

@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 import cornerSparkleIcon from "../assets/icons/corner-sparkle.png?url";
-import bgImage from "../assets/images/bg.png?url";
 
 export const HomepageContainer = styled.div`
   position: fixed;
@@ -11,10 +10,20 @@ export const HomepageContainer = styled.div`
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-image: url("${bgImage}");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  overflow: hidden;
+`;
+
+export const VideoBackground = styled.video`
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  min-height: 100%;
+  width: 100%;
+  height: 100%;
+  /* transform: translate(-50%, -50%); */
+  object-fit: cover;
+  z-index: -1;
 `;
 
 export const PageButton = styled.button`
@@ -43,6 +52,7 @@ export const PageButton = styled.button`
   backdrop-filter: blur(2px);
   &:hover {
     background: rgba(59, 65, 75, 0.85);
+    outline: none;
   }
 
   &:focus,
