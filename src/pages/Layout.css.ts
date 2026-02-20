@@ -188,9 +188,9 @@ export const NavList = styled.div`
 
 export const NavItem = styled.button<{ $selected?: boolean }>`
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: 20px 1fr;
   align-items: center;
-  justify-content: space-between;
+  gap: 12px;
   width: 100%;
   padding: 15px;
   /* margin-bottom: 8px; */
@@ -232,8 +232,6 @@ export const DiamondOutline = styled.span`
   border: 2px solid #d4af37;
   transform: rotate(45deg);
   flex-shrink: 0;
-  position: absolute;
-  left: 20px;
 `;
 
 export const DiamondCheck = styled.span`
@@ -246,8 +244,6 @@ export const DiamondCheck = styled.span`
   transform: rotate(45deg);
   flex-shrink: 0;
   box-shadow: 0 0 0 1px rgba(212, 175, 55, 0.5);
-  position: absolute;
-  left: 20px;
 `;
 
 export const NavItemCheckmark = styled.svg`
@@ -282,6 +278,70 @@ export const Corner = styled.div`
     bottom: -10px;
     right: -10px;
   }
+`;
+
+export const HamburgerButton = styled.button`
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* gap: 5px; */
+  background: transparent;
+  /* border: 1px solid rgba(255, 255, 255, 0.1); */
+  border-radius: 4px;
+  cursor: pointer;
+  z-index: 100;
+  /* backdrop-filter: blur(4px); */
+
+  img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    padding: 4px;
+  }
+`;
+
+export const Sidebar = styled.aside<{ $open?: boolean }>`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 240px;
+  height: 100%;
+  background: rgba(44, 54, 71, 0.95);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 24px 16px;
+  display: flex;
+  flex-direction: column;
+  z-index: 500;
+  transform: translateX(${(p) => (p.$open ? "0" : "-100%")});
+  transition: transform 0.3s ease;
+`;
+
+export const SidebarOverlay = styled.div<{ $open?: boolean }>`
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 499;
+  opacity: ${(p) => (p.$open ? 1 : 0)};
+  pointer-events: ${(p) => (p.$open ? "auto" : "none")};
+  transition: opacity 0.3s ease;
+`;
+
+export const MainContent = styled.main`
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: auto;
+  z-index: 0;
 `;
 
 export const SocialIcons = styled.div`

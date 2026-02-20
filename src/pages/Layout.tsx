@@ -1,10 +1,32 @@
 import { useState } from "react";
 import { Outlet, useLocation, useNavigate } from "react-router-dom";
 
+import paimonMenuIcon from "../assets/icons/Icon_Paimon_Menu.webp";
+
 import {
-    Checkmark, CloseButton, Corner, DiamondCheck, DiamondIcon, DiamondOutline, HomepageContainer,
-    ModalContainer, ModalOverlay, ModalTitle, NavItem, NavItemCheckmark, NavList, PageButton,
-    SocialIconLink, SocialIcons, TitleDecoration, TitleDivider, VideoBackground
+  Checkmark,
+  CloseButton,
+  Corner,
+  DiamondCheck,
+  DiamondIcon,
+  DiamondOutline,
+  HamburgerButton,
+  HomepageContainer,
+  MainContent,
+  ModalContainer,
+  ModalOverlay,
+  ModalTitle,
+  NavItem,
+  NavItemCheckmark,
+  NavList,
+  PageButton,
+  Sidebar,
+  SidebarOverlay,
+  SocialIconLink,
+  SocialIcons,
+  TitleDecoration,
+  TitleDivider,
+  VideoBackground,
 } from "./Layout.css";
 
 const PAGES: { path: string; name: string }[] = [
@@ -27,11 +49,13 @@ function Layout({ pageName: propPageName, children }: LayoutProps) {
   const location = useLocation();
   const navigate = useNavigate();
   const [modalOpen, setModalOpen] = useState(false);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
   const pageName = propPageName ?? PAGE_NAMES[location.pathname] ?? "Home";
 
   const handleNavClick = (path: string) => {
     navigate(path);
     setModalOpen(false);
+    setSidebarOpen(false);
   };
 
   return (
@@ -39,7 +63,51 @@ function Layout({ pageName: propPageName, children }: LayoutProps) {
       <VideoBackground autoPlay loop muted playsInline>
         <source src="/bg.webm" type="video/webm" />
       </VideoBackground>
-      {children ?? <Outlet />}
+      <HamburgerButton
+        type="button"
+        onClick={() => setSidebarOpen((o) => !o)}
+        aria-label="Toggle menu"
+        aria-expanded={sidebarOpen}>
+        <img src={paimonMenuIcon} alt="" />
+      </HamburgerButton>
+      <SidebarOverlay
+        $open={sidebarOpen}
+        onClick={() => setSidebarOpen(false)}
+        aria-hidden="true"
+      />
+      <Sidebar $open={sidebarOpen}>
+        <NavList>
+          {PAGES.map(({ path, name }) => {
+            const isSelected = location.pathname === path;
+            return (
+              <NavItem
+                key={path}
+                type="button"
+                $selected={isSelected}
+                className={isSelected ? "selected" : ""}
+                onClick={() => handleNavClick(path)}>
+                {isSelected ? (
+                  <DiamondCheck>
+                    <NavItemCheckmark
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="#2f343a"
+                      strokeWidth="6"
+                      strokeLinecap="round"
+                      strokeLinejoin="round">
+                      <path d="M5 13l4 4L19 7" />
+                    </NavItemCheckmark>
+                  </DiamondCheck>
+                ) : (
+                  <DiamondOutline />
+                )}
+                {name}
+              </NavItem>
+            );
+          })}
+        </NavList>
+      </Sidebar>
+      <MainContent>{children ?? <Outlet />}</MainContent>
       <SocialIcons>
         <SocialIconLink
           href="https://www.linkedin.com/in/yathaartha-maharjan/"
