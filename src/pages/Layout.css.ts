@@ -306,32 +306,17 @@ export const HamburgerButton = styled.button`
   }
 `;
 
-export const Sidebar = styled.aside<{ $open?: boolean }>`
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 240px;
-  height: 100%;
-  background: rgba(44, 54, 71, 0.95);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border-right: 1px solid rgba(255, 255, 255, 0.1);
-  padding: 24px 16px;
-  display: flex;
-  flex-direction: column;
-  z-index: 500;
-  transform: translateX(${(p) => (p.$open ? "0" : "-100%")});
-  transition: transform 0.3s ease;
-`;
-
 export const SidebarOverlay = styled.div<{ $open?: boolean }>`
   position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.4);
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 40%;
+  /* background: rgba(0, 0, 0, 0.4); */
   z-index: 499;
-  opacity: ${(p) => (p.$open ? 1 : 0)};
+  /* opacity: ${(p) => (p.$open ? 1 : 0)}; */
   pointer-events: ${(p) => (p.$open ? "auto" : "none")};
-  transition: opacity 0.3s ease;
+  transition: opacity 1s ease;
 `;
 
 export const MainContent = styled.main`
