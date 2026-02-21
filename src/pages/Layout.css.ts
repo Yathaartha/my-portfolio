@@ -44,7 +44,7 @@ export const PageButton = styled.button`
   border-bottom: 1px solid #2f343a;
   border-radius: 2px;
   color: #e8e8e8;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "HYWenHei-85W", Arial, Helvetica, sans-serif;
   font-size: 18px;
   font-weight: 700;
   letter-spacing: 0.5px;
@@ -135,7 +135,7 @@ export const ModalTitle = styled.div`
   color: #fdf2c1;
   font-size: 18px;
   font-weight: 700;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "HYWenHei-85W", Arial, Helvetica, sans-serif;
 `;
 
 export const TitleDivider = styled.div`
@@ -203,7 +203,7 @@ export const NavItem = styled.button<{ $selected?: boolean }>`
   border-left: none;
 
   transition: all 0.2s ease;
-  font-family: "Segoe UI", sans-serif; /* Use a clean sans-serif */
+  font-family: "HYWenHei-85W", "Segoe UI", sans-serif;
   font-size: 1.1rem;
   color: rgba(255, 255, 255, 0.9);
   cursor: pointer;

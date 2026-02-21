@@ -56,7 +56,7 @@ function Layout({ pageName: propPageName, children }: LayoutProps) {
         onClick={() => setSidebarOpen(false)}
         aria-hidden="true"
       />
-      <Sidebar sidebarOpen={sidebarOpen} />
+      <Sidebar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
       <MainContent>{children ?? <Outlet />}</MainContent>
       <SocialIcons>
         <SocialIconLink
