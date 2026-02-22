@@ -303,6 +303,7 @@ export const HamburgerButton = styled.button`
     height: 80px;
     object-fit: contain;
     padding: 4px;
+    filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.5));
   }
 `;
 
@@ -327,6 +328,123 @@ export const MainContent = styled.main`
   bottom: 0;
   overflow: auto;
   z-index: 0;
+`;
+
+export const ContactMeButton = styled.button`
+  position: absolute;
+  bottom: 48px;
+  left: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 28px;
+  border-radius: 50px;
+  background: white;
+  color: #000;
+  border: none;
+  font-family: "HYWenHei-85W", Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
+
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+  }
+
+  &:focus,
+  &:focus-visible {
+    outline: none;
+  }
+`;
+
+export const ContactFormModal = styled(ModalContainer)`
+  min-width: 400px;
+  max-width: 90vw;
+`;
+
+export const Form = styled.form`
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+`;
+
+export const FormGroup = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+`;
+
+export const FormLabel = styled.label`
+  font-size: 14px;
+  font-weight: 600;
+  color: #fdf2c1;
+  font-family: "HYWenHei-85W", Arial, Helvetica, sans-serif;
+`;
+
+export const FormInput = styled.input`
+  padding: 10px 14px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+  color: #e8e8e8;
+  font-size: 14px;
+  font-family: inherit;
+
+  &::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+  }
+
+  &:focus {
+    outline: none;
+    border-color: #d4af37;
+  }
+`;
+
+export const FormTextarea = styled.textarea`
+  padding: 10px 14px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+  color: #e8e8e8;
+  font-size: 14px;
+  font-family: inherit;
+  min-height: 120px;
+  resize: vertical;
+
+  &::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+  }
+
+  &:focus {
+    outline: none;
+    border-color: #d4af37;
+  }
+`;
+
+export const SubmitButton = styled.button`
+  padding: 12px 24px;
+  background: rgba(212, 175, 55, 0.4);
+  border: 1px solid #d4af37;
+  border-radius: 4px;
+  color: #fdf2c1;
+  font-size: 16px;
+  font-weight: 600;
+  font-family: "HYWenHei-85W", Arial, Helvetica, sans-serif;
+  cursor: pointer;
+
+  &:hover {
+    background: rgba(212, 175, 55, 0.6);
+  }
+
+  &:focus {
+    outline: none;
+  }
 `;
 
 export const SocialIcons = styled.div`

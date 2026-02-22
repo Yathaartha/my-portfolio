@@ -1,13 +1,14 @@
 import { useState } from "react";
 import { Outlet, useLocation, useNavigate } from "react-router-dom";
 
-import paimonMenuIcon from "../assets/icons/Icon_Paimon_Menu.webp";
+import paimonMenuIcon from "../assets/icons/Icon_Paimon_Menu.png";
 import { Sidebar } from "../components/Sidebar/Sidebar";
 import {
-    Checkmark, CloseButton, Corner, DiamondCheck, DiamondIcon, DiamondOutline, HamburgerButton,
+    Checkmark, CloseButton, ContactFormModal, ContactMeButton, Corner, DiamondCheck, DiamondIcon,
+    DiamondOutline, Form, FormGroup, FormInput, FormLabel, FormTextarea, HamburgerButton,
     HomepageContainer, MainContent, ModalContainer, ModalOverlay, ModalTitle, NavItem,
     NavItemCheckmark, NavList, PageButton, SidebarOverlay, SocialIconLink, SocialIcons,
-    TitleDecoration, TitleDivider, VideoBackground
+    SubmitButton, TitleDecoration, TitleDivider, VideoBackground
 } from "./Layout.css";
 
 const PAGES: { path: string; name: string }[] = [
@@ -30,6 +31,7 @@ function Layout({ pageName: propPageName, children }: LayoutProps) {
   const location = useLocation();
   const navigate = useNavigate();
   const [modalOpen, setModalOpen] = useState(false);
+  const [contactModalOpen, setContactModalOpen] = useState(false);
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const pageName = propPageName ?? PAGE_NAMES[location.pathname] ?? "Home";
 
@@ -58,6 +60,178 @@ function Layout({ pageName: propPageName, children }: LayoutProps) {
       />
       <Sidebar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
       <MainContent>{children ?? <Outlet />}</MainContent>
+
+      <ContactMeButton type="button" onClick={() => setContactModalOpen(true)}>
+        Contact Me
+      </ContactMeButton>
+
+      {contactModalOpen && (
+        <ModalOverlay onClick={() => setContactModalOpen(false)}>
+          <ContactFormModal onClick={(e) => e.stopPropagation()}>
+            <Corner className="top-left" />
+            <Corner className="top-right" />
+            <Corner className="bottom-left" />
+            <Corner className="bottom-right" />
+            <CloseButton
+              type="button"
+              onClick={() => setContactModalOpen(false)}>
+              <svg viewBox="0 0 24 24" fill="none">
+                <line
+                  x1="4"
+                  y1="4"
+                  x2="10"
+                  y2="10"
+                  stroke="#c8a84b"
+                  strokeWidth="2.5"
+                  strokeLinecap="square"
+                />
+                <line
+                  x1="4"
+                  y1="4"
+                  x2="4"
+                  y2="8"
+                  stroke="#c8a84b"
+                  strokeWidth="2"
+                  strokeLinecap="square"
+                />
+                <line
+                  x1="4"
+                  y1="4"
+                  x2="8"
+                  y2="4"
+                  stroke="#c8a84b"
+                  strokeWidth="2"
+                  strokeLinecap="square"
+                />
+                <line
+                  x1="20"
+                  y1="4"
+                  x2="14"
+                  y2="10"
+                  stroke="#c8a84b"
+                  strokeWidth="2.5"
+                  strokeLinecap="square"
+                />
+                <line
+                  x1="20"
+                  y1="4"
+                  x2="20"
+                  y2="8"
+                  stroke="#c8a84b"
+                  strokeWidth="2"
+                  strokeLinecap="square"
+                />
+                <line
+                  x1="20"
+                  y1="4"
+                  x2="16"
+                  y2="4"
+                  stroke="#c8a84b"
+                  strokeWidth="2"
+                  strokeLinecap="square"
+                />
+                <line
+                  x1="4"
+                  y1="20"
+                  x2="10"
+                  y2="14"
+                  stroke="#c8a84b"
+                  strokeWidth="2.5"
+                  strokeLinecap="square"
+                />
+                <line
+                  x1="4"
+                  y1="20"
+                  x2="4"
+                  y2="16"
+                  stroke="#c8a84b"
+                  strokeWidth="2"
+                  strokeLinecap="square"
+                />
+                <line
+                  x1="4"
+                  y1="20"
+                  x2="8"
+                  y2="20"
+                  stroke="#c8a84b"
+                  strokeWidth="2"
+                  strokeLinecap="square"
+                />
+                <line
+                  x1="20"
+                  y1="20"
+                  x2="14"
+                  y2="14"
+                  stroke="#c8a84b"
+                  strokeWidth="2.5"
+                  strokeLinecap="square"
+                />
+                <line
+                  x1="20"
+                  y1="20"
+                  x2="20"
+                  y2="16"
+                  stroke="#c8a84b"
+                  strokeWidth="2"
+                  strokeLinecap="square"
+                />
+                <line
+                  x1="20"
+                  y1="20"
+                  x2="16"
+                  y2="20"
+                  stroke="#c8a84b"
+                  strokeWidth="2"
+                  strokeLinecap="square"
+                />
+              </svg>
+            </CloseButton>
+            <ModalTitle>
+              <TitleDecoration>◆</TitleDecoration>
+              Get in Touch
+              <TitleDecoration>◆</TitleDecoration>
+            </ModalTitle>
+            <TitleDivider />
+            <Form
+              onSubmit={(e) => {
+                e.preventDefault();
+                setContactModalOpen(false);
+              }}>
+              <FormGroup>
+                <FormLabel htmlFor="contact-name">Name</FormLabel>
+                <FormInput
+                  id="contact-name"
+                  name="name"
+                  type="text"
+                  placeholder="Your name"
+                  required
+                />
+              </FormGroup>
+              <FormGroup>
+                <FormLabel htmlFor="contact-email">Email</FormLabel>
+                <FormInput
+                  id="contact-email"
+                  name="email"
+                  type="email"
+                  placeholder="your@email.com"
+                  required
+                />
+              </FormGroup>
+              <FormGroup>
+                <FormLabel htmlFor="contact-message">Message</FormLabel>
+                <FormTextarea
+                  id="contact-message"
+                  name="message"
+                  placeholder="Your message..."
+                  required
+                />
+              </FormGroup>
+              <SubmitButton type="submit">Send</SubmitButton>
+            </Form>
+          </ContactFormModal>
+        </ModalOverlay>
+      )}
+
       <SocialIcons>
         <SocialIconLink
           href="https://www.linkedin.com/in/yathaartha-maharjan/"

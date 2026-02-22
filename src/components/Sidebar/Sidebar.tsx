@@ -5,11 +5,13 @@ import backIcon from "../../assets/icons/back-arrow.png";
 import copyIcon from "../../assets/icons/copy.png";
 import profilePicture from "../../assets/images/dummy-profile-pic.webp";
 import {
-    BackButton, BioSection, BotSide, Container, CopyButton, DegreeTooltip, ExperienceSection,
-    InfoSection, MailSection, MailText, NameSection, PictureSection, PicWrapper, ProfilePicture,
-    SchoolLabel, SchoolName, SchoolNameRow, SchoolSection, SidebarContent, SideSidebar, TooltipIcon,
-    TopSide
+    BackButton, BioSection, BotSide, CardGrid, Container, CopyButton, DegreeTooltip,
+    ExperienceSection, InfoSection, MailSection, MailText, NameSection, PictureSection, PicWrapper,
+    ProfilePicture, SchoolLabel, SchoolName, SchoolNameRow, SchoolSection, SidebarContent,
+    SideSidebar, TooltipIcon, TopSide
 } from "./Sidebar.css";
+import { SidebarCard } from "./SidebarCard";
+import { SIDEBAR_CARDS, sidebarCardIcons } from "./sidebarCardData";
 
 export const Sidebar = ({
   sidebarOpen,
@@ -97,7 +99,17 @@ export const Sidebar = ({
               </ExperienceSection>
             </InfoSection>
           </TopSide>
-          <BotSide>asd</BotSide>
+          <BotSide>
+            <CardGrid>
+              {SIDEBAR_CARDS.map(({ text, iconKey }) => (
+                <SidebarCard
+                  key={text}
+                  icon={sidebarCardIcons[iconKey]}
+                  text={text}
+                />
+              ))}
+            </CardGrid>
+          </BotSide>
         </Container>
       </Container>
     </SidebarContent>

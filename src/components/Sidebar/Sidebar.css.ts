@@ -9,8 +9,8 @@ export const SidebarContent = styled.aside<{ $open?: boolean }>`
   width: 40%;
   height: 100%;
   /* background: rgba(44, 54, 71, 0.95); */
-  /* backdrop-filter: blur(8px); */
-  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
   border-right: 1px solid rgba(255, 255, 255, 0.1);
   /* padding: 24px 16px; */
   z-index: 500;
@@ -267,7 +267,60 @@ export const BotSide = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: flex-start;
+  gap: 12px;
+  padding: 12px;
+  overflow-y: auto;
+  flex: 1;
+`;
+
+export const CardGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  width: 100%;
+  /* margin: 0 20px; */
+`;
+
+export const SidebarCard = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
-  gap: 10px;
+  gap: 6px;
+  /* padding: 8px 8px; */
+  background: rgba(75, 84, 101, 1);
+  /* border: 1px solid rgba(211, 188, 142, 0.5); */
+  /* border-radius: 6px; */
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: inset 0 0 0 3px #848e9c;
+
+  &:hover {
+    transform: translateY(-2px);
+  }
+`;
+
+export const CardIcon = styled.span`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  color: #ffffff;
+  padding: 6px 0;
+
+  img {
+    width: 60px;
+    height: 60px;
+  }
+`;
+
+export const CardText = styled.span`
+  font-size: 14px;
+  font-weight: 600;
+  color: #ffffff;
+  text-align: center;
+  padding-bottom: 6px;
 `;
 
