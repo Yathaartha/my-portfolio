@@ -4,6 +4,7 @@ import Homepage from "./Homepage";
 import About from "./pages/About";
 import Projects from "./pages/Projects";
 import Contact from "./pages/Contact";
+import SkillTreePage from "./pages/SkillTree";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/projects" element={<Projects />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/skill-tree" element={<SkillTreePage />} />
       </Routes>
     </BrowserRouter>
   );

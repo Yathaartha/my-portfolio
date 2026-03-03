@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 import nameCard from "../../assets/images/Namecard_Background_Fontaine_Judgment.webp?url";
+import { GOLD, GRAY, NEUTRAL, RGBA } from "../../utils/constants";
 
 export const SidebarContent = styled.aside<{ $open?: boolean }>`
   position: fixed;
@@ -35,11 +36,11 @@ export const SideSidebar = styled.div`
   height: 100%;
   background: linear-gradient(
     to bottom,
-    rgba(75, 84, 101, 1),
-    rgba(75, 84, 101, 0.7)
+    ${RGBA.slateBlue(1)},
+    ${RGBA.slateBlue(0.7)}
   );
-  border-right: 2px solid #d3bc8e;
-  border-left: 2px solid #d3bc8e;
+  border-right: 2px solid ${GOLD.border};
+  border-left: 2px solid ${GOLD.border};
   padding: 10px;
   display: flex;
   align-items: center;
@@ -54,9 +55,9 @@ export const BackButton = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #ece5d8;
+  background: ${GOLD.creamLight};
   border-radius: 50%;
-  border: 5px solid #95979d;
+  border: 5px solid ${GRAY.border};
   cursor: pointer;
   padding: 6px;
   img {
@@ -92,7 +93,7 @@ export const PicWrapper = styled.div`
   height: 100px;
   border-radius: 50%;
   overflow: hidden;
-  border: 10px groove rgba(255, 255, 255, 0.5);
+  border: 10px groove ${RGBA.white(0.5)};
 `;
 
 export const ProfilePicture = styled.img`
@@ -109,24 +110,24 @@ export const MailSection = styled.div`
   align-items: center;
   justify-content: center;
   gap: 5px;
-  color: #ffffff;
+  color: ${NEUTRAL.white};
 `;
 
 export const MailText = styled.a`
   font-size: 10px;
   font-weight: 600;
   text-align: center;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-  background-color: rgba(0, 0, 0, 0.5);
+  text-shadow: 2px 2px 4px ${RGBA.black(0.5)};
+  background-color: ${RGBA.black(0.5)};
   padding: 2px 5px;
   border-radius: 20px;
   width: 100%;
   text-decoration: none;
-  color: #ffffff;
+  color: ${NEUTRAL.white};
   cursor: pointer;
   &:hover {
     text-decoration: none;
-    color: #ffffff;
+    color: ${NEUTRAL.white};
   }
 `;
 
@@ -154,7 +155,7 @@ export const InfoSection = styled.div`
   align-items: center;
   justify-content: center;
   gap: 10px;
-  color: #ffffff;
+  color: ${NEUTRAL.white};
 `;
 export const NameSection = styled.div`
   display: flex;
@@ -164,9 +165,9 @@ export const NameSection = styled.div`
   font-size: 18px;
   background: linear-gradient(
     to right,
-    rgba(0, 0, 0, 0),
-    rgba(75, 84, 101, 0.7),
-    rgba(0, 0, 0, 0)
+    ${RGBA.black(0)},
+    ${RGBA.slateBlue(0.7)},
+    ${RGBA.black(0)}
   );
   padding: 2px 4px;
 `;
@@ -178,9 +179,9 @@ export const SchoolSection = styled.div`
   font-size: 14px;
   background: linear-gradient(
     to right,
-    rgba(0, 0, 0, 0),
-    rgba(75, 84, 101, 0.7),
-    rgba(0, 0, 0, 0)
+    ${RGBA.black(0)},
+    ${RGBA.slateBlue(0.7)},
+    ${RGBA.black(0)}
   );
   padding: 2px 4px;
 `;
@@ -188,13 +189,13 @@ export const SchoolSection = styled.div`
 export const SchoolLabel = styled.span`
   font-size: 14px;
   font-weight: 600;
-  color: #ffffff;
+  color: ${NEUTRAL.white};
 `;
 
 export const SchoolName = styled.span`
   font-size: 14px;
   font-weight: 600;
-  color: #ffffff;
+  color: ${NEUTRAL.white};
 `;
 
 export const SchoolNameRow = styled.div`
@@ -210,8 +211,8 @@ export const TooltipIcon = styled.button`
   min-width: 14px;
   min-height: 14px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.9);
-  color: #4b5465;
+  background: ${RGBA.white(0.9)};
+  color: ${GRAY.muted};
   border: none;
   cursor: pointer;
   font-size: 16px;
@@ -223,7 +224,7 @@ export const TooltipIcon = styled.button`
   padding: 2px;
 
   &:hover {
-    background: #ffffff;
+    background: ${NEUTRAL.white};
   }
 
   &:focus {
@@ -237,12 +238,12 @@ export const DegreeTooltip = styled.div`
   top: 100%;
   margin-top: 6px;
   padding: 8px 12px;
-  background: rgba(75, 84, 101, 0.9);
-  color: #ffffff;
+  background: ${RGBA.slateBlue(0.9)};
+  color: ${NEUTRAL.white};
   font-size: 12px;
   font-weight: 500;
   border-radius: 6px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 12px ${RGBA.black(0.3)};
   z-index: 200;
   white-space: nowrap;
 `;
@@ -289,12 +290,12 @@ export const SidebarCard = styled.div`
   justify-content: center;
   gap: 6px;
   /* padding: 8px 8px; */
-  background: rgba(75, 84, 101, 1);
+  background: ${RGBA.slateBlue(1)};
   /* border: 1px solid rgba(211, 188, 142, 0.5); */
   /* border-radius: 6px; */
   cursor: pointer;
   transition: all 0.2s;
-  box-shadow: inset 0 0 0 3px #848e9c;
+  box-shadow: inset 0 0 0 3px ${GRAY.light};
 
   &:hover {
     transform: translateY(-2px);
@@ -307,7 +308,7 @@ export const CardIcon = styled.span`
   justify-content: center;
   width: 60px;
   height: 60px;
-  color: #ffffff;
+  color: ${NEUTRAL.white};
   padding: 6px 0;
 
   img {
@@ -319,7 +320,7 @@ export const CardIcon = styled.span`
 export const CardText = styled.span`
   font-size: 14px;
   font-weight: 600;
-  color: #ffffff;
+  color: ${NEUTRAL.white};
   text-align: center;
   padding-bottom: 6px;
 `;

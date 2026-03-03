@@ -1,7 +1,10 @@
 import { useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
+import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 
 import backIcon from "../../assets/icons/back-arrow.png";
+import { ResumeModal } from "./ResumeModal";
 import copyIcon from "../../assets/icons/copy.png";
 import profilePicture from "../../assets/images/dummy-profile-pic.webp";
 import {
@@ -20,7 +23,9 @@ export const Sidebar = ({
   sidebarOpen: boolean;
   setSidebarOpen: (open: boolean) => void;
 }) => {
+  const navigate = useNavigate();
   const [degreeTooltipOpen, setDegreeTooltipOpen] = useState(false);
+  const [resumeModalOpen, setResumeModalOpen] = useState(false);
   const degreeTooltipRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -106,12 +111,27 @@ export const Sidebar = ({
                   key={text}
                   icon={sidebarCardIcons[iconKey]}
                   text={text}
+                  onClick={
+                    iconKey === "resume"
+                      ? () => setResumeModalOpen(true)
+                      : iconKey === "skillTree"
+                        ? () => {
+                            navigate("/skill-tree");
+                            setSidebarOpen(false);
+                          }
+                        : undefined
+                  }
                 />
               ))}
             </CardGrid>
           </BotSide>
         </Container>
       </Container>
+      {resumeModalOpen &&
+        createPortal(
+          <ResumeModal onClose={() => setResumeModalOpen(false)} />,
+          document.body
+        )}
     </SidebarContent>
   );
 };

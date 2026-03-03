@@ -34,6 +34,7 @@ function Layout({ pageName: propPageName, children }: LayoutProps) {
   const [contactModalOpen, setContactModalOpen] = useState(false);
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const pageName = propPageName ?? PAGE_NAMES[location.pathname] ?? "Home";
+  const isProjectsPage = location.pathname === "/projects";
 
   const handleNavClick = (path: string) => {
     navigate(path);
@@ -46,24 +47,30 @@ function Layout({ pageName: propPageName, children }: LayoutProps) {
       <VideoBackground autoPlay loop muted playsInline>
         <source src="/bg.webm" type="video/webm" />
       </VideoBackground>
-      <HamburgerButton
-        type="button"
-        onClick={() => setSidebarOpen((o) => !o)}
-        aria-label="Toggle menu"
-        aria-expanded={sidebarOpen}>
-        <img src={paimonMenuIcon} alt="" />
-      </HamburgerButton>
-      <SidebarOverlay
-        $open={sidebarOpen}
-        onClick={() => setSidebarOpen(false)}
-        aria-hidden="true"
-      />
-      <Sidebar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
+      {!isProjectsPage && (
+        <>
+          <HamburgerButton
+            type="button"
+            onClick={() => setSidebarOpen((o) => !o)}
+            aria-label="Toggle menu"
+            aria-expanded={sidebarOpen}>
+            <img src={paimonMenuIcon} alt="" />
+          </HamburgerButton>
+          <SidebarOverlay
+            $open={sidebarOpen}
+            onClick={() => setSidebarOpen(false)}
+            aria-hidden="true"
+          />
+          <Sidebar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
+        </>
+      )}
       <MainContent>{children ?? <Outlet />}</MainContent>
 
-      <ContactMeButton type="button" onClick={() => setContactModalOpen(true)}>
-        Contact Me
-      </ContactMeButton>
+      {!isProjectsPage && (
+        <ContactMeButton type="button" onClick={() => setContactModalOpen(true)}>
+          Contact Me
+        </ContactMeButton>
+      )}
 
       {contactModalOpen && (
         <ModalOverlay onClick={() => setContactModalOpen(false)}>
@@ -232,6 +239,7 @@ function Layout({ pageName: propPageName, children }: LayoutProps) {
         </ModalOverlay>
       )}
 
+      {!isProjectsPage && (
       <SocialIcons>
         <SocialIconLink
           href="https://www.linkedin.com/in/yathaartha-maharjan/"
@@ -267,8 +275,10 @@ function Layout({ pageName: propPageName, children }: LayoutProps) {
           </svg>
         </SocialIconLink>
       </SocialIcons>
+      )}
 
-      <PageButton type="button" onClick={() => setModalOpen(true)}>
+      {!isProjectsPage && (
+        <PageButton type="button" onClick={() => setModalOpen(true)}>
         <DiamondIcon>
           <Checkmark
             viewBox="0 0 24 24"
@@ -282,6 +292,7 @@ function Layout({ pageName: propPageName, children }: LayoutProps) {
         </DiamondIcon>
         {pageName}
       </PageButton>
+      )}
 
       {modalOpen && (
         <ModalOverlay onClick={() => setModalOpen(false)}>
@@ -298,8 +309,8 @@ function Layout({ pageName: propPageName, children }: LayoutProps) {
                   x2="10"
                   y2="10"
                   stroke="#c8a84b"
-                  stroke-width="2.5"
-                  stroke-linecap="square"
+                  strokeWidth="2.5"
+                  strokeLinecap="square"
                 />
                 <line
                   x1="4"
@@ -307,8 +318,8 @@ function Layout({ pageName: propPageName, children }: LayoutProps) {
                   x2="4"
                   y2="8"
                   stroke="#c8a84b"
-                  stroke-width="2"
-                  stroke-linecap="square"
+                  strokeWidth="2"
+                  strokeLinecap="square"
                 />
                 <line
                   x1="4"
@@ -316,8 +327,8 @@ function Layout({ pageName: propPageName, children }: LayoutProps) {
                   x2="8"
                   y2="4"
                   stroke="#c8a84b"
-                  stroke-width="2"
-                  stroke-linecap="square"
+                  strokeWidth="2"
+                  strokeLinecap="square"
                 />
 
                 <line
@@ -326,8 +337,8 @@ function Layout({ pageName: propPageName, children }: LayoutProps) {
                   x2="14"
                   y2="10"
                   stroke="#c8a84b"
-                  stroke-width="2.5"
-                  stroke-linecap="square"
+                  strokeWidth="2.5"
+                  strokeLinecap="square"
                 />
                 <line
                   x1="20"
@@ -335,8 +346,8 @@ function Layout({ pageName: propPageName, children }: LayoutProps) {
                   x2="20"
                   y2="8"
                   stroke="#c8a84b"
-                  stroke-width="2"
-                  stroke-linecap="square"
+                  strokeWidth="2"
+                  strokeLinecap="square"
                 />
                 <line
                   x1="20"
@@ -344,8 +355,8 @@ function Layout({ pageName: propPageName, children }: LayoutProps) {
                   x2="16"
                   y2="4"
                   stroke="#c8a84b"
-                  stroke-width="2"
-                  stroke-linecap="square"
+                  strokeWidth="2"
+                  strokeLinecap="square"
                 />
 
                 <line
@@ -354,8 +365,8 @@ function Layout({ pageName: propPageName, children }: LayoutProps) {
                   x2="10"
                   y2="14"
                   stroke="#c8a84b"
-                  stroke-width="2.5"
-                  stroke-linecap="square"
+                  strokeWidth="2.5"
+                  strokeLinecap="square"
                 />
                 <line
                   x1="4"
@@ -363,8 +374,8 @@ function Layout({ pageName: propPageName, children }: LayoutProps) {
                   x2="4"
                   y2="16"
                   stroke="#c8a84b"
-                  stroke-width="2"
-                  stroke-linecap="square"
+                  strokeWidth="2"
+                  strokeLinecap="square"
                 />
                 <line
                   x1="4"
@@ -372,8 +383,8 @@ function Layout({ pageName: propPageName, children }: LayoutProps) {
                   x2="8"
                   y2="20"
                   stroke="#c8a84b"
-                  stroke-width="2"
-                  stroke-linecap="square"
+                  strokeWidth="2"
+                  strokeLinecap="square"
                 />
 
                 <line
@@ -382,8 +393,8 @@ function Layout({ pageName: propPageName, children }: LayoutProps) {
                   x2="14"
                   y2="14"
                   stroke="#c8a84b"
-                  stroke-width="2.5"
-                  stroke-linecap="square"
+                  strokeWidth="2.5"
+                  strokeLinecap="square"
                 />
                 <line
                   x1="20"
@@ -391,8 +402,8 @@ function Layout({ pageName: propPageName, children }: LayoutProps) {
                   x2="20"
                   y2="16"
                   stroke="#c8a84b"
-                  stroke-width="2"
-                  stroke-linecap="square"
+                  strokeWidth="2"
+                  strokeLinecap="square"
                 />
                 <line
                   x1="20"
@@ -400,8 +411,8 @@ function Layout({ pageName: propPageName, children }: LayoutProps) {
                   x2="16"
                   y2="20"
                   stroke="#c8a84b"
-                  stroke-width="2"
-                  stroke-linecap="square"
+                  strokeWidth="2"
+                  strokeLinecap="square"
                 />
               </svg>
             </CloseButton>
