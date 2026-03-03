@@ -1,7 +1,12 @@
 /**
- * Common color palette used across the portfolio.
+ * Common color palette and typography used across the portfolio.
  * Use these constants for consistent theming.
  */
+
+/** Primary font stack - use everywhere for consistent typography */
+export const FONT = {
+  primary: '"HYWenHei-85W", system-ui, Arial, Helvetica, sans-serif',
+} as const;
 
 // Gold / cream accents
 export const GOLD = {

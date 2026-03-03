@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 import cornerSparkleIcon from "../assets/icons/corner-sparkle.png?url";
-import { DARK, GOLD, GRAY, NEUTRAL, RGBA } from "../utils/constants";
+import { DARK, FONT, GOLD, GRAY, NEUTRAL, RGBA } from "../utils/constants";
 
 export const HomepageContainer = styled.div`
   position: fixed;
@@ -202,7 +202,7 @@ export const NavItem = styled.button<{ $selected?: boolean }>`
   border-left: none;
 
   transition: all 0.2s ease;
-  font-family: "HYWenHei-85W", "Segoe UI", sans-serif;
+  font-family: ${FONT.primary};
   font-size: 1.1rem;
   color: ${RGBA.white(0.9)};
   cursor: pointer;
@@ -326,6 +326,7 @@ export const MainContent = styled.main`
   bottom: 0;
   overflow: auto;
   z-index: 0;
+  font-family: ${FONT.primary};
 `;
 
 export const ContactMeButton = styled.button`
@@ -392,7 +393,7 @@ export const FormInput = styled.input`
   border-radius: 4px;
   color: #e8e8e8;
   font-size: 14px;
-  font-family: inherit;
+  font-family: ${FONT.primary};
 
   &::placeholder {
     color: ${RGBA.white(0.5)};
@@ -411,7 +412,7 @@ export const FormTextarea = styled.textarea`
   border-radius: 4px;
   color: #e8e8e8;
   font-size: 14px;
-  font-family: inherit;
+  font-family: ${FONT.primary};
   min-height: 120px;
   resize: vertical;
 

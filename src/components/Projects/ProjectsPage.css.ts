@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 import celestiaDark from "../../assets/images/celestia-dark.png?url";
-import { DARK, GOLD, GRAY, PURPLE, RGBA } from "../../utils/constants";
+import { DARK, FONT, GOLD, GRAY, PURPLE, RGBA } from "../../utils/constants";
 
 const RARITY_GRADIENTS: Record<number, string> = {
   3: `linear-gradient(135deg, ${GRAY.medium} 0%, ${DARK.slateBlue} 50%, ${DARK.slate} 100%)`,
@@ -15,7 +15,7 @@ export const ProjectsContainer = styled.div`
   width: 100%;
   height: 100%;
   min-height: 100vh;
-  font-family: "Georgia", "Times New Roman", "HYWenHei-85W", serif;
+  font-family: ${FONT.primary};
 
   &::before {
     content: "";
@@ -34,10 +34,12 @@ export const TimerBar = styled.div`
   left: 0;
   right: 0;
   padding: 12px 24px;
-  background: ${RGBA.slate(0.9)};
+  font-family: ${FONT.primary};
+  background: ${RGBA.cream(0.9)};
   border-bottom: 1px solid ${RGBA.border(0.3)};
-  color: ${RGBA.cream(0.9)};
-  font-size: 14px;
+  color: ${RGBA.slateBlue(0.9)};
+  font-size: 18px;
+  font-weight: 600;
   text-align: center;
   z-index: 10;
 `;
@@ -46,6 +48,7 @@ export const LeftSidebar = styled.aside`
   width: 200px;
   min-width: 200px;
   padding: 80px 0 24px;
+  font-family: ${FONT.primary};
   background: linear-gradient(
     180deg,
     rgba(75, 84, 101, 0.95) 0%,
@@ -65,7 +68,7 @@ export const CategoryButton = styled.button<{ $active?: boolean }>`
   border-left: ${(p) =>
     p.$active ? `3px solid ${GOLD.primary}` : "3px solid transparent"};
   color: ${(p) => (p.$active ? GOLD.cream : RGBA.cream(0.7))};
-  font-family: "Georgia", "Times New Roman", "HYWenHei-85W", serif;
+  font-family: ${FONT.primary};
   font-size: 15px;
   font-weight: ${(p) => (p.$active ? "600" : "400")};
   text-align: left;
@@ -83,6 +86,7 @@ export const ContentWrapper = styled.div`
   display: flex;
   min-width: 0;
   overflow: hidden;
+  font-family: ${FONT.primary};
 `;
 
 export const GridArea = styled.main`
@@ -90,6 +94,7 @@ export const GridArea = styled.main`
   padding: 80px 24px 24px;
   overflow-y: auto;
   min-width: 0;
+  font-family: ${FONT.primary};
 `;
 
 export const ProjectGrid = styled.div`
@@ -108,6 +113,7 @@ export const ProjectGrid = styled.div`
 `;
 
 export const ProjectCard = styled.button<{ $rarity: number }>`
+  font-family: ${FONT.primary};
   aspect-ratio: 1;
   border: 2px solid ${RGBA.border(0.4)};
   border-radius: 8px;
@@ -153,6 +159,7 @@ export const CardNameBar = styled.div`
 `;
 
 export const DetailPanel = styled.aside`
+  font-family: ${FONT.primary};
   flex: 0 0 40%;
   min-width: 280px;
   max-width: 480px;
@@ -174,6 +181,7 @@ export const DetailPanel = styled.aside`
 `;
 
 export const DetailCloseButton = styled.button`
+  font-family: ${FONT.primary};
   position: absolute;
   top: 16px;
   right: 16px;
@@ -210,6 +218,7 @@ export const DetailProjectIcon = styled.div`
 `;
 
 export const DetailTitle = styled.h2`
+  font-family: ${FONT.primary};
   font-size: 22px;
   font-weight: 600;
   color: ${GOLD.cream};
@@ -226,6 +235,7 @@ export const DetailRarity = styled.div`
 `;
 
 export const LoreLabel = styled.h3`
+  font-family: ${FONT.primary};
   font-size: 12px;
   font-weight: 600;
   color: ${GOLD.muted};
@@ -235,7 +245,7 @@ export const LoreLabel = styled.h3`
 `;
 
 export const LoreText = styled.p`
-  font-family: "Georgia", "Times New Roman", "HYWenHei-85W", serif;
+  font-family: ${FONT.primary};
   font-size: 15px;
   line-height: 1.7;
   color: ${RGBA.cream(0.95)};
@@ -243,6 +253,7 @@ export const LoreText = styled.p`
 `;
 
 export const AttributesLabel = styled.h3`
+  font-family: ${FONT.primary};
   font-size: 12px;
   font-weight: 600;
   color: ${GOLD.muted};
@@ -252,6 +263,7 @@ export const AttributesLabel = styled.h3`
 `;
 
 export const AttributeItem = styled.div`
+  font-family: ${FONT.primary};
   display: flex;
   align-items: center;
   gap: 12px;
@@ -278,7 +290,7 @@ export const ExchangeButton = styled.a`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100%;
+  /* width: 100%; */
   margin-top: auto;
   padding: 18px 24px;
   background: linear-gradient(
@@ -290,7 +302,7 @@ export const ExchangeButton = styled.a`
   border: 2px solid ${GOLD.cream};
   border-radius: 6px;
   color: ${DARK.slate};
-  font-family: "Georgia", "Times New Roman", "HYWenHei-85W", serif;
+  font-family: ${FONT.primary};
   font-size: 18px;
   font-weight: 700;
   text-decoration: none;

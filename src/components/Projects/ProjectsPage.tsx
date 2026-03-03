@@ -1,12 +1,7 @@
-import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import { useState } from "react";
 
-import {
-  PROJECT_CATEGORIES,
-  PROJECTS,
-  type Project,
-  type ProjectCategory,
-} from "./projectsData";
+import { PROJECT_CATEGORIES, PROJECTS } from "./projectsData";
 import {
   AttributeItem,
   AttributeName,
@@ -32,6 +27,7 @@ import {
   TimerBar,
 } from "./ProjectsPage.css";
 
+import type { Project, ProjectCategory } from "./projectsData";
 const RARITY_STARS: Record<number, string> = {
   3: "★★★",
   4: "★★★★",
@@ -39,7 +35,8 @@ const RARITY_STARS: Record<number, string> = {
 };
 
 function ProjectsPage() {
-  const [activeCategory, setActiveCategory] = useState<ProjectCategory>("featured");
+  const [activeCategory, setActiveCategory] =
+    useState<ProjectCategory>("featured");
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   const filteredProjects =
@@ -59,7 +56,7 @@ function ProjectsPage() {
 
   return (
     <ProjectsContainer>
-      <TimerBar>Next Update: May 2026</TimerBar>
+      <TimerBar>Projects</TimerBar>
 
       <LeftSidebar>
         {PROJECT_CATEGORIES.map(({ key, label }) => (
@@ -103,7 +100,15 @@ function ProjectsPage() {
               animate={{ x: 0, opacity: 1 }}
               exit={{ x: "100%", opacity: 0 }}
               transition={{ type: "spring", stiffness: 300, damping: 30 }}>
-              <div style={{ position: "relative", padding: "24px", flex: 1, display: "flex", flexDirection: "column", minWidth: 0 }}>
+              <div
+                style={{
+                  position: "relative",
+                  padding: "24px",
+                  flex: 1,
+                  display: "flex",
+                  flexDirection: "column",
+                  minWidth: 0,
+                }}>
                 <DetailCloseButton
                   type="button"
                   onClick={() => setSelectedProject(null)}
@@ -112,13 +117,18 @@ function ProjectsPage() {
                 </DetailCloseButton>
                 <DetailProjectIcon>
                   {selectedProject.spriteUrl ? (
-                    <img src={selectedProject.spriteUrl} alt={selectedProject.name} />
+                    <img
+                      src={selectedProject.spriteUrl}
+                      alt={selectedProject.name}
+                    />
                   ) : (
                     selectedProject.icon
                   )}
                 </DetailProjectIcon>
                 <DetailTitle>{selectedProject.name}</DetailTitle>
-                <DetailRarity>{RARITY_STARS[selectedProject.rarity]} Rarity</DetailRarity>
+                <DetailRarity>
+                  {RARITY_STARS[selectedProject.rarity]} Rarity
+                </DetailRarity>
 
                 <LoreLabel>Lore</LoreLabel>
                 <LoreText>{selectedProject.description}</LoreText>
@@ -147,3 +157,4 @@ function ProjectsPage() {
 }
 
 export default ProjectsPage;
+

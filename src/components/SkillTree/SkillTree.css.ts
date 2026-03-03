@@ -1,6 +1,6 @@
 import styled, { keyframes } from "styled-components";
 
-import { DARK, GOLD, RGBA } from "../../utils/constants";
+import { DARK, FONT, GOLD, RGBA } from "../../utils/constants";
 
 const linePulse = keyframes`
   0%, 100% { opacity: 0.5; stroke-opacity: 0.6; }
@@ -18,7 +18,7 @@ export const SkillTreeContainer = styled.div`
   background: url("/celestia-sky.png") no-repeat center center fixed;
   background-size: cover;
   background-color: ${DARK.navy};
-  font-family: "Georgia", "Times New Roman", "HYWenHei-85W", serif;
+  font-family: ${FONT.primary};
   overflow: hidden;
 `;
 
@@ -53,7 +53,7 @@ export const ConstellationSection = styled.section<{ $category: string }>`
 `;
 
 export const ConstellationTitle = styled.h2`
-  font-family: "Georgia", "Times New Roman", "HYWenHei-85W", serif;
+  font-family: ${FONT.primary};
   font-size: 18px;
   font-weight: 600;
   color: ${GOLD.cream};
@@ -138,7 +138,7 @@ export const NodeLabelGroup = styled.div`
 `;
 
 export const NodeLabel = styled.span`
-  font-family: "Georgia", "Times New Roman", "HYWenHei-85W", serif;
+  font-family: ${FONT.primary};
   font-size: 15px;
   font-weight: 600;
   color: ${RGBA.cream(0.9)};
@@ -146,7 +146,7 @@ export const NodeLabel = styled.span`
 `;
 
 export const NodeSubtitle = styled.span`
-  font-family: "Georgia", "Times New Roman", "HYWenHei-85W", serif;
+  font-family: ${FONT.primary};
   font-size: 12px;
   font-weight: 400;
   color: ${RGBA.cream(0.6)};
@@ -171,7 +171,7 @@ export const SidePanel = styled.aside`
 `;
 
 export const SidePanelTitle = styled.h3`
-  font-family: "Georgia", "Times New Roman", "HYWenHei-85W", serif;
+  font-family: ${FONT.primary};
   font-size: 20px;
   font-weight: 600;
   color: ${GOLD.cream};
@@ -185,7 +185,7 @@ export const SidePanelLevel = styled.p`
 `;
 
 export const SidePanelSection = styled.h4`
-  font-family: "Georgia", "Times New Roman", "HYWenHei-85W", serif;
+  font-family: ${FONT.primary};
   font-size: 16px;
   font-weight: 600;
   color: ${GOLD.muted};
@@ -247,7 +247,7 @@ export const BackButton = styled.button`
   border: 1px solid ${RGBA.gold(0.4)};
   border-radius: 6px;
   color: ${GOLD.cream};
-  font-family: "Georgia", "Times New Roman", "HYWenHei-85W", serif;
+  font-family: ${FONT.primary};
   font-size: 16px;
   cursor: pointer;
   z-index: 101;

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 import cornerSparkleIcon from "../../assets/icons/corner-sparkle.png?url";
-import { DARK, GOLD, GRAY, NEUTRAL, RGBA } from "../../utils/constants";
+import { DARK, FONT, GOLD, GRAY, NEUTRAL, RGBA } from "../../utils/constants";
 
 export const ModalOverlay = styled.div`
   position: fixed;
@@ -82,7 +82,7 @@ export const CloseButton = styled.button`
 
 export const ResumeName = styled.h1`
   margin: 32px 40px 4px;
-  font-family: "HYWenHei-85W", "Georgia", "Times New Roman", serif;
+  font-family: ${FONT.primary};
   font-size: 28px;
   font-weight: 700;
   color: ${DARK.slate};
@@ -125,7 +125,7 @@ export const ResumeBody = styled.div`
   flex: 1;
   overflow-y: auto;
   padding: 0 40px 32px;
-  font-family: "HYWenHei-85W", "Georgia", "Times New Roman", serif;
+  font-family: ${FONT.primary};
   font-size: 13px;
   line-height: 1.5;
 

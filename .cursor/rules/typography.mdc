@@ -1,0 +1,33 @@
+---
+description: Use HYWenHei-85W font everywhere in the project
+alwaysApply: true
+---
+
+# Typography
+
+Use **HYWenHei-85W** as the primary font everywhere in this portfolio.
+
+## Font constant
+
+Import and use the shared constant from `src/utils/constants.ts`:
+
+```ts
+import { FONT } from "../../utils/constants";
+
+// In styled-components
+font-family: ${FONT.primary};
+```
+
+## Fallback stack
+
+When writing raw CSS or when the constant isn't available, use:
+
+```css
+font-family: "HYWenHei-85W", system-ui, Arial, Helvetica, sans-serif;
+```
+
+## Rules
+
+- Never use Georgia, Times New Roman, or other serif fonts as primary
+- Prefer `FONT.primary` in styled-components over hardcoded strings
+- Form inputs, buttons, labels, and all text should use this font stack
