@@ -15,6 +15,7 @@ const PAGES: { path: string; name: string }[] = [
   { path: "/", name: "Home" },
   { path: "/about", name: "About" },
   { path: "/projects", name: "Projects" },
+  { path: "/hobbies", name: "Hobbies" },
   { path: "/contact", name: "Contact" },
 ];
 
@@ -35,6 +36,7 @@ function Layout({ pageName: propPageName, children }: LayoutProps) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const pageName = propPageName ?? PAGE_NAMES[location.pathname] ?? "Home";
   const isProjectsPage = location.pathname === "/projects";
+  const isContactPage = location.pathname === "/contact";
 
   const handleNavClick = (path: string) => {
     navigate(path);
@@ -66,7 +68,7 @@ function Layout({ pageName: propPageName, children }: LayoutProps) {
       )}
       <MainContent>{children ?? <Outlet />}</MainContent>
 
-      {!isProjectsPage && (
+      {!isProjectsPage && !isContactPage && (
         <ContactMeButton type="button" onClick={() => setContactModalOpen(true)}>
           Contact Me
         </ContactMeButton>

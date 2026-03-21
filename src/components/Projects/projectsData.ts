@@ -9,7 +9,6 @@ export interface Project {
   category: ProjectCategory;
   rarity: ProjectRarity;
   icon: string;
-  /** Optional high-res sprite/image URL. Falls back to icon emoji if not set. */
   spriteUrl?: string;
   techStack: string[];
   url?: string;
@@ -24,65 +23,87 @@ export const PROJECT_CATEGORIES: { key: ProjectCategory; label: string }[] = [
 
 export const PROJECTS: Project[] = [
   {
-    id: "life-graph",
-    name: "Life Graph App",
-    description:
-      "An interactive data visualization application built with React and D3.js. Visualizes personal life events, milestones, and timelines in an engaging graph format. Features smooth animations, zoom/pan controls, and responsive design.",
-    category: "featured",
-    rarity: 5,
-    icon: "📊",
-    techStack: ["React", "D3.js", "TypeScript"],
-    url: "#",
-  },
-  {
-    id: "node-boilerplate",
-    name: "Node.js Backend Boilerplate",
-    description:
-      "A production-ready Node.js and TypeScript backend starter template. Includes Express, authentication patterns, database setup, and CI/CD configuration. Designed for rapid API development.",
-    category: "featured",
-    rarity: 4,
-    icon: "⚙",
-    techStack: ["Node.js", "TypeScript", "Express"],
-    url: "#",
-  },
-  {
     id: "portfolio",
     name: "Portfolio Website",
     description:
-      "This very portfolio! A Genshin Impact-inspired personal website built with React, styled-components, and Vite. Features a skill tree, resume modal, and immersive UI.",
-    category: "webDev",
-    rarity: 4,
+      "A Genshin Impact-inspired personal portfolio built with React, TypeScript, styled-components, and Vite. Features an interactive constellation skill tree, animated resume modal, project showcase with rarity system, and an immersive UI inspired by the Paimon menu.",
+    category: "featured",
+    rarity: 5,
     icon: "🌐",
-    techStack: ["React", "TypeScript", "Styled Components", "Vite"],
-    url: "#",
+    techStack: ["React", "TypeScript", "Styled Components", "Vite", "Framer Motion"],
+    url: "https://github.com/Yathaartha",
   },
   {
-    id: "crm-app",
-    name: "CRM Application",
+    id: "parkit-app",
+    name: "ParkIT App",
     description:
-      "Production CRM built from scratch with React and Redux. Supports client and project management workflows for regulated digital marketing environments.",
+      "A full-stack parking management application that helps users find and reserve parking spots. Features real-time availability tracking, reservation management, and an intuitive user interface for seamless parking experiences.",
+    category: "featured",
+    rarity: 5,
+    icon: "🅿️",
+    techStack: ["JavaScript", "React", "Node.js", "MongoDB"],
+    url: "https://github.com/Yathaartha/ParkIT-app",
+  },
+  {
+    id: "parkit-api",
+    name: "ParkIT API",
+    description:
+      "RESTful backend API powering the ParkIT parking management system. Handles user authentication, parking spot management, reservations, and real-time availability updates with Express and MongoDB.",
+    category: "featured",
+    rarity: 4,
+    icon: "⚙️",
+    techStack: ["JavaScript", "Node.js", "Express", "MongoDB"],
+    url: "https://github.com/Yathaartha/ParkIT-api",
+  },
+  {
+    id: "bellacucina",
+    name: "BellaCucina Website",
+    description:
+      "A responsive website built for Bella Cucina restaurant in Agawam. Features menu display, location information, and an elegant design that captures the restaurant's Italian dining atmosphere.",
     category: "webDev",
     rarity: 4,
-    icon: "📋",
-    techStack: ["React", "Redux", "TypeScript"],
-    url: "#",
+    icon: "🍝",
+    techStack: ["JavaScript", "HTML", "CSS", "React"],
+    url: "https://github.com/Yathaartha/BellaCucina-website",
+  },
+  {
+    id: "ebn-app",
+    name: "EBN App",
+    description:
+      "A modern web application with a clean, polished interface built using contemporary CSS techniques and responsive design principles for an optimal user experience across devices.",
+    category: "webDev",
+    rarity: 4,
+    icon: "📱",
+    techStack: ["CSS", "JavaScript", "React"],
+    url: "https://github.com/Yathaartha/EBN-app",
+  },
+  {
+    id: "sasto-twitch",
+    name: "Sasto Twitch",
+    description:
+      "A Twitch-inspired streaming platform clone built with JavaScript. Implements core streaming platform features including channel browsing, live stream viewing, and user interaction capabilities.",
+    category: "webDev",
+    rarity: 4,
+    icon: "📺",
+    techStack: ["JavaScript", "React", "Node.js"],
+    url: "https://github.com/Yathaartha/sasto-twitch",
   },
   {
     id: "ml-pipeline",
     name: "ML Data Pipeline",
     description:
-      "Machine learning pipeline for academic research. Handles data preprocessing, model training, and visualization of results.",
+      "Machine learning pipeline developed during academic research at Clark University. Handles data preprocessing, feature engineering, model training, and visualization of results using industry-standard Python libraries.",
     category: "machineLearning",
-    rarity: 3,
+    rarity: 4,
     icon: "🧠",
-    techStack: ["Python", "scikit-learn", "Pandas"],
+    techStack: ["Python", "scikit-learn", "Pandas", "NumPy"],
     url: "#",
   },
   {
     id: "signal-processing",
     name: "Signal Processing",
     description:
-      "Numerical methods and signal processing projects from academic coursework. MATLAB-based implementations.",
+      "Numerical methods and signal processing projects from academic coursework at Leeds Beckett University. MATLAB-based implementations covering Fourier transforms, filtering, and digital signal analysis.",
     category: "machineLearning",
     rarity: 3,
     icon: "📈",
@@ -90,14 +111,14 @@ export const PROJECTS: Project[] = [
     url: "#",
   },
   {
-    id: "hospitality-site",
-    name: "Hospitality Website",
+    id: "snake-game",
+    name: "Snake Game",
     description:
-      "Responsive web interface for a hospitality client. Built with React, HTML, and SASS.",
+      "A classic Snake game implementation built with vanilla JavaScript. Features smooth gameplay mechanics, score tracking, and responsive controls for an engaging retro gaming experience.",
     category: "archives",
     rarity: 3,
-    icon: "🏨",
-    techStack: ["React", "HTML", "SASS"],
-    url: "#",
+    icon: "🐍",
+    techStack: ["JavaScript", "HTML", "CSS"],
+    url: "https://github.com/Yathaartha/Snake-game",
   },
 ];

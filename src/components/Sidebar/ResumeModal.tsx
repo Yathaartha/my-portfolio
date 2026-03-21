@@ -275,20 +275,62 @@ export const ResumeModal = ({ onClose }: ResumeModalProps) => (
         <ResumeSection>
           <ResumeSectionTitle>Projects</ResumeSectionTitle>
           <p>
-            <strong>[Project Name]</strong>
+            <strong>ParkIT</strong>
             <br />
-            <em>React, Node.js, PostgreSQL · [Link]</em>
+            <em>
+              React, Node.js, Express, MongoDB ·{" "}
+              <a
+                href="https://github.com/Yathaartha/ParkIT-app"
+                target="_blank"
+                rel="noopener noreferrer">
+                GitHub
+              </a>
+            </em>
           </p>
           <ul>
-            <li>Brief description of the project and your key contributions</li>
+            <li>
+              Built a full-stack parking management application with real-time
+              availability tracking, reservation management, and RESTful API
+              backend
+            </li>
           </ul>
           <p>
-            <strong>[Project Name]</strong>
+            <strong>BellaCucina Website</strong>
             <br />
-            <em>Tech stack · [Link]</em>
+            <em>
+              React, JavaScript, CSS ·{" "}
+              <a
+                href="https://github.com/Yathaartha/BellaCucina-website"
+                target="_blank"
+                rel="noopener noreferrer">
+                GitHub
+              </a>
+            </em>
           </p>
           <ul>
-            <li>Brief description of the project and your key contributions</li>
+            <li>
+              Designed and developed a responsive restaurant website for Bella
+              Cucina Agawam with menu display and elegant UI
+            </li>
+          </ul>
+          <p>
+            <strong>Portfolio Website</strong>
+            <br />
+            <em>
+              React, TypeScript, Styled Components, Vite ·{" "}
+              <a
+                href="https://github.com/Yathaartha"
+                target="_blank"
+                rel="noopener noreferrer">
+                GitHub
+              </a>
+            </em>
+          </p>
+          <ul>
+            <li>
+              Created a Genshin Impact-themed portfolio with an interactive
+              constellation skill tree, animated modals, and project showcase
+            </li>
           </ul>
         </ResumeSection>
         <ResumeSection>

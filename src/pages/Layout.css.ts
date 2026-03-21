@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import cornerSparkleIcon from "../assets/icons/corner-sparkle.png?url";
+import cornerSparkleIcon from "../assets/icons/corner-sparkle.svg?url";
 import { DARK, FONT, GOLD, GRAY, NEUTRAL, RGBA } from "../utils/constants";
 
 export const HomepageContainer = styled.div`
@@ -12,6 +12,8 @@ export const HomepageContainer = styled.div`
   width: 100vw;
   height: 100vh;
   overflow: hidden;
+  background: url("/celestia-sky.png") no-repeat center center;
+  background-size: cover;
 `;
 
 export const VideoBackground = styled.video`
@@ -45,7 +47,7 @@ export const PageButton = styled.button`
   border-bottom: 1px solid ${DARK.slate};
   border-radius: 2px;
   color: #e8e8e8;
-  font-family: "HYWenHei-85W", Arial, Helvetica, sans-serif;
+  font-family: ${FONT.primary};
   font-size: 18px;
   font-weight: 700;
   letter-spacing: 0.5px;
@@ -134,7 +136,7 @@ export const ModalTitle = styled.div`
   color: ${GOLD.cream};
   font-size: 18px;
   font-weight: 700;
-  font-family: "HYWenHei-85W", Arial, Helvetica, sans-serif;
+  font-family: ${FONT.primary};
 `;
 
 export const TitleDivider = styled.div`
@@ -288,9 +290,8 @@ export const HamburgerButton = styled.button`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  /* gap: 5px; */
   background: transparent;
-  /* border: 1px solid rgba(255, 255, 255, 0.1); */
+  border: none;
   border-radius: 4px;
   cursor: pointer;
   z-index: 100;
@@ -341,7 +342,7 @@ export const ContactMeButton = styled.button`
   background: white;
   color: ${NEUTRAL.black};
   border: none;
-  font-family: "HYWenHei-85W", Arial, Helvetica, sans-serif;
+  font-family: ${FONT.primary};
   font-size: 14px;
   font-weight: 700;
   letter-spacing: 0.5px;
@@ -383,7 +384,7 @@ export const FormLabel = styled.label`
   font-size: 14px;
   font-weight: 600;
   color: ${GOLD.cream};
-  font-family: "HYWenHei-85W", Arial, Helvetica, sans-serif;
+  font-family: ${FONT.primary};
 `;
 
 export const FormInput = styled.input`
@@ -434,7 +435,7 @@ export const SubmitButton = styled.button`
   color: ${GOLD.cream};
   font-size: 16px;
   font-weight: 600;
-  font-family: "HYWenHei-85W", Arial, Helvetica, sans-serif;
+  font-family: ${FONT.primary};
   cursor: pointer;
 
   &:hover {

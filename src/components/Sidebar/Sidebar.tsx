@@ -119,7 +119,17 @@ export const Sidebar = ({
                             navigate("/skill-tree");
                             setSidebarOpen(false);
                           }
-                        : undefined
+                        : iconKey === "projects" || iconKey === "archives"
+                          ? () => {
+                              navigate("/projects");
+                              setSidebarOpen(false);
+                            }
+                          : iconKey === "hobbies"
+                            ? () => {
+                                navigate("/hobbies");
+                                setSidebarOpen(false);
+                              }
+                            : undefined
                   }
                 />
               ))}

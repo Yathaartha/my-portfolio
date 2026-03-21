@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import cornerSparkleIcon from "../../assets/icons/corner-sparkle.png?url";
+import cornerSparkleIcon from "../../assets/icons/corner-sparkle.svg?url";
 import { DARK, FONT, GOLD, GRAY, NEUTRAL, RGBA } from "../../utils/constants";
 
 export const ModalOverlay = styled.div`
