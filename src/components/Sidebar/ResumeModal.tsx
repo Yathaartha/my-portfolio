@@ -12,7 +12,7 @@ import {
   TitleDivider,
 } from "./ResumeModal.css";
 
-const CLOSE_BUTTON_SVG = (
+const CLOSE_BUTTON_SVG: React.ReactNode = (
   <svg viewBox="0 0 24 24" fill="none">
     <line
       x1="4"
@@ -189,6 +189,28 @@ export const ResumeModal = ({ onClose }: ResumeModalProps) => (
         </ResumeSection>
         <ResumeSection>
           <ResumeSectionTitle>Experience</ResumeSectionTitle>
+          {/*Elytra Global */}
+          <p>
+            <strong>Co-founder</strong> — Elytra Global
+            <br />
+            <em>May 2026 – Present</em>
+          </p>
+          <ul>
+            <li>
+              Design and engineer a non-custodial B2B payment orchestration
+              platform from the ground up to facilitate seamless cross-border
+              transactions.
+            </li>
+            <li>
+              Build scalable, cloud-native backend architecture using Node.js,
+              TypeScript, and PostgreSQL while applying cloud infrastructure
+              principles.
+            </li>
+            <li>
+              Manage technical infrastructure, from configuring domain DNS
+              routing to deploying secure, containerized environments.
+            </li>
+          </ul>
           {/* Dzango Technologies */}
           <p>
             <strong>Full Stack Developer</strong> — Dzango Technologies
