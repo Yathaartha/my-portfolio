@@ -164,7 +164,7 @@ export const ResumeModal = ({ onClose }: ResumeModalProps) => (
           <p>
             <strong>Clark University</strong> — Worcester, MA
             <br />
-            <em>Jan 2022 – Present</em>
+            <em>Aug 2024 – May 2026</em>
             <br />
             Master of Science in Computer Science (STEM)
           </p>
