@@ -99,7 +99,7 @@ export const IntroText = styled.p`
 
 export const ContactGrid = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 12px;
   padding: 0 40px 24px;
 
@@ -114,6 +114,8 @@ export const ContactGrid = styled.div`
 `;
 
 export const ContactCard = styled.a`
+  box-sizing: border-box;
+  min-width: 0;
   display: flex;
   align-items: center;
   gap: 14px;
@@ -216,6 +218,9 @@ export const FormLabel = styled.label`
 `;
 
 export const FormInput = styled.input`
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
   padding: 11px 14px;
   background: ${RGBA.white(0.08)};
   border: 1px solid ${RGBA.white(0.15)};
@@ -234,9 +239,16 @@ export const FormInput = styled.input`
     border-color: ${GOLD.primary};
     background: ${RGBA.white(0.1)};
   }
+
+  ${MEDIA.mobileLandscape} {
+    font-size: 16px;
+  }
 `;
 
 export const FormTextarea = styled.textarea`
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
   padding: 11px 14px;
   background: ${RGBA.white(0.08)};
   border: 1px solid ${RGBA.white(0.15)};
@@ -260,6 +272,7 @@ export const FormTextarea = styled.textarea`
 
   ${MEDIA.mobileLandscape} {
     min-height: 90px;
+    font-size: 16px;
   }
 `;
 

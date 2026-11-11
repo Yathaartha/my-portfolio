@@ -221,3 +221,20 @@ export const ResumeSkillChips = styled.div`
   }
 `;
 
+
+export const ResumeSkillGroup = styled.div`
+  margin-bottom: 12px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  strong {
+    font-size: 12px;
+    color: ${DARK.slate};
+  }
+
+  & > div {
+    margin-top: 6px;
+  }
+`;

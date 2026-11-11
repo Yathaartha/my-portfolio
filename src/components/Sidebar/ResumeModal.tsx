@@ -9,6 +9,7 @@ import {
   ResumeSection,
   ResumeSectionTitle,
   ResumeSkillChips,
+  ResumeSkillGroup,
   TitleDivider,
 } from "./ResumeModal.css";
 
@@ -125,6 +126,29 @@ const CLOSE_BUTTON_SVG: React.ReactNode = (
   </svg>
 );
 
+const SKILL_GROUPS: { label: string; skills: string[] }[] = [
+  {
+    label: "Programming Languages",
+    skills: ["Java", "Python", "JavaScript", "TypeScript", "C++", "C#", "SQL", "Go"],
+  },
+  {
+    label: "Frameworks & Tools",
+    skills: [
+      "React.js", "Node.js", "Express.js", ".NET", "Spring", "Spring Boot",
+      "Angular", "Vue.js", "AWS", "Docker", "Git", "SVN", "CI/CD", "Postman",
+      "Adobe Photoshop", "Figma", "Front-end Frameworks", "Gradle", "Redux",
+    ],
+  },
+  {
+    label: "Databases & Data Technologies",
+    skills: ["Oracle", "PostgreSQL", "Data Structures", "Storage Systems"],
+  },
+  {
+    label: "Infrastructure & Observability",
+    skills: ["Cloud Infrastructure", "Kubernetes", "Grafana", "Envoy", "Cilium"],
+  },
+];
+
 interface ResumeModalProps {
   onClose: () => void;
 }
@@ -141,6 +165,8 @@ export const ResumeModal = ({ onClose }: ResumeModalProps) => (
       </CloseButton>
       <ResumeName>Yathaartha Maharjan</ResumeName>
       <ResumeContact>
+        Boulder, CO
+        {" · "}
         <a href="mailto:myathaartha@gmail.com">myathaartha@gmail.com</a>
         {" · "}
         <a
@@ -160,40 +186,54 @@ export const ResumeModal = ({ onClose }: ResumeModalProps) => (
       <TitleDivider />
       <ResumeBody>
         <ResumeSection>
+          <ResumeSectionTitle>Summary</ResumeSectionTitle>
+          <p style={{ textAlign: "justify" }}>
+            Full-Stack Developer with over 3 years of experience designing and
+            implementing scalable applications using React, Node.js, Java, and
+            PostgreSQL. Proficient in developing RESTful APIs, Dockerized
+            microservices, cloud-native infrastructure, and CI/CD pipelines.
+            Strong collaborator experienced in translating stakeholder needs
+            into reliable, customer-facing solutions across the product
+            lifecycle.
+          </p>
+        </ResumeSection>
+        <ResumeSection>
           <ResumeSectionTitle>Education</ResumeSectionTitle>
           <p>
             <strong>Clark University</strong> — Worcester, MA
             <br />
             <em>Aug 2024 – May 2026</em>
             <br />
-            Master of Science in Computer Science (STEM)
+            Master of Science, Computer Science (STEM) · GPA: 3.91
           </p>
           <p>
-            <strong>Leeds Beckett University</strong> — Leeds, UK
+            <strong>Leeds Beckett University</strong> — Kathmandu, Nepal
             <br />
             <em>Sep 2020 – Sep 2023</em>
             <br />
-            Bachelors of Science (Hons) in Computing (GPA: 3.8/4.0)
+            Bachelor of Science, Computing · GPA: 3.87
           </p>
         </ResumeSection>
         <ResumeSection>
-          <ResumeSectionTitle>Professional Summary</ResumeSectionTitle>
-          <p style={{ textAlign: "justify" }}>
-            Full-stack Software Engineer with 3+ years of experience building
-            and scaling production web applications used by real customers.
-            Specialized in React, Node.js, and containerized backend services,
-            with proven impact improving deployment speed, system reliability,
-            and business decision-making. Experienced working in Agile teams and
-            contributing to products that supported successful Series A growth.
-          </p>
+          <ResumeSectionTitle>Skills</ResumeSectionTitle>
+          {SKILL_GROUPS.map(({ label, skills }) => (
+            <ResumeSkillGroup key={label}>
+              <strong>{label}</strong>
+              <ResumeSkillChips>
+                {skills.map((skill) => (
+                  <span key={skill}>{skill}</span>
+                ))}
+              </ResumeSkillChips>
+            </ResumeSkillGroup>
+          ))}
         </ResumeSection>
         <ResumeSection>
-          <ResumeSectionTitle>Experience</ResumeSectionTitle>
-          {/*Elytra Global */}
+          <ResumeSectionTitle>Professional Experience</ResumeSectionTitle>
+          {/* Elytra Global */}
           <p>
-            <strong>Co-founder</strong> — Elytra Global
+            <strong>Co-founder</strong> — Elytra Global, Ltd.
             <br />
-            <em>May 2026 – Present</em>
+            <em>Rockville, Maryland · May 2026 – Present</em>
           </p>
           <ul>
             <li>
@@ -213,94 +253,67 @@ export const ResumeModal = ({ onClose }: ResumeModalProps) => (
           </ul>
           {/* Dzango Technologies */}
           <p>
-            <strong>Full Stack Developer</strong> — Dzango Technologies
+            <strong>Full-Stack Developer</strong> — Dzango Technologies
             <br />
-            <em>Jan 2023 – Jun 2024</em>
+            <em>Paris, France · Jan 2023 – Jun 2024</em>
           </p>
           <ul>
             <li>
-              Built and maintained production-grade full-stack features used by
-              real customers, contributing to platform scalability, performance
-              improvements, and product maturity during a successful Series A
-              growth phase
+              Designed and implemented scalable full-stack solutions with React
+              (ES6+), Node.js, and PostgreSQL, applying front-end frameworks,
+              RESTful APIs, and automated testing to enhance performance and
+              customer experience while contributing to the client's Series A
+              funding.
             </li>
             <li>
-              Built and optimized PostgreSQL queries and GraphQL/REST APIs
-              powering business-critical reporting, enabling stakeholders to
-              make faster, data-driven decisions reducing reporting turnaround
-              time by ~30%
+              Developed complex Oracle and PostgreSQL SQL queries and automated
+              reporting tools for storage systems supporting business-critical
+              decisions, leading to more informed strategic planning.
             </li>
             <li>
-              Containerized backend services using Docker and improved CI/CD
-              pipelines, reducing deployment time and increasing system uptime
-              in production
-            </li>
-            <li>
-              Collaborated closely with product managers, designers, and
-              engineers in Agile sprints, contributing to feature planning,
-              technical decisions, and on-time delivery
+              Ensured system reliability by integrating Dockerized Spring Boot
+              microservices and streamlining CI/CD pipelines for the backend,
+              resulting in reduced deployment times and improved system uptime.
             </li>
           </ul>
-          {/* Dzango Technologies */}
           <p>
             <strong>Associate Software Developer</strong> — Dzango Technologies
             <br />
-            <em>Jun 2022 – Dec 2022</em>
+            <em>Paris, France · Jun 2022 – Dec 2022</em>
           </p>
           <ul>
             <li>
-              Contributed to backend services and automation scripts across
-              multiple full-stack applications, resolving production issues and
-              improving overall platform reliability
+              Developed features and fixed bugs across full-stack web
+              applications using React in an Agile team, enhancing application
+              stability and end user satisfaction.
             </li>
             <li>
-              Improved frontend performance and responsiveness using TypeScript
-              and React, while implementing secure access control patterns
-              aligned with IAM best practices
+              Used TypeScript and React to improve application performance and
+              UI responsiveness, resulting in a smoother user experience and
+              more efficient development process.
             </li>
           </ul>
           {/* Aakash Labs */}
           <p>
-            <strong>Aakash Labs</strong> — Frontend Developer
+            <strong>Frontend Developer</strong> — Aakash Labs
             <br />
-            <em>Jul 2021 – Jun 2022</em>
+            <em>Kathmandu, Nepal · Jul 2021 – Jun 2022</em>
           </p>
           <ul>
             <li>
-              Designed and developed a production CRM application from scratch
-              using React and Redux, supporting client and project management
-              workflows for a regulated digital marketing environment
-            </li>
-            <li>
-              Translated Figma designs into pixel-perfect, accessible interfaces
-              in collaboration with UI/UX designers, improving usability and
-              consistency across the platform
-            </li>
-          </ul>
-          {/* Kaaikaas */}
-          <p>
-            <strong>Kaaikaas Technologies</strong> — Web Developer Intern
-            <br />
-            <em>Jan 2021 – Jun 2021</em>
-          </p>
-          <ul>
-            <li>
-              Built responsive web interfaces using HTML, CSS/SASS, and React
-              for real client projects, including hospitality websites
-            </li>
-            <li>
-              Iterated on features based on client feedback, improving usability
-              and delivery speed
+              Built a CRM system from scratch using React, Redux, Angular,
+              HTML5, and CSS3, enabling streamlined access to client and project
+              data for the digital marketing team.
             </li>
           </ul>
         </ResumeSection>
         <ResumeSection>
           <ResumeSectionTitle>Projects</ResumeSectionTitle>
           <p>
-            <strong>ParkIT</strong>
+            <strong>Smart Parking System – ParkIT</strong>
             <br />
             <em>
-              React, Node.js, Express, MongoDB ·{" "}
+              Python, OpenCV, Docker, CI/CD ·{" "}
               <a
                 href="https://github.com/Yathaartha/ParkIT-app"
                 target="_blank"
@@ -311,62 +324,16 @@ export const ResumeModal = ({ onClose }: ResumeModalProps) => (
           </p>
           <ul>
             <li>
-              Built a full-stack parking management application with real-time
-              availability tracking, reservation management, and RESTful API
-              backend
+              Developed a computer vision-powered parking detection system using
+              Python and OpenCV, applying data processing techniques to improve
+              space detection accuracy to 95%.
             </li>
-          </ul>
-          <p>
-            <strong>BellaCucina Website</strong>
-            <br />
-            <em>
-              React, JavaScript, CSS ·{" "}
-              <a
-                href="https://github.com/Yathaartha/BellaCucina-website"
-                target="_blank"
-                rel="noopener noreferrer">
-                GitHub
-              </a>
-            </em>
-          </p>
-          <ul>
             <li>
-              Designed and developed a responsive restaurant website for Bella
-              Cucina Agawam with menu display and elegant UI
+              Automated application deployment and testing with Docker, CI/CD
+              pipelines, and Git version control, supporting reliable software
+              releases.
             </li>
           </ul>
-          <p>
-            <strong>Portfolio Website</strong>
-            <br />
-            <em>
-              React, TypeScript, Styled Components, Vite ·{" "}
-              <a
-                href="https://github.com/Yathaartha"
-                target="_blank"
-                rel="noopener noreferrer">
-                GitHub
-              </a>
-            </em>
-          </p>
-          <ul>
-            <li>
-              Created a Genshin Impact-themed portfolio with an interactive
-              constellation skill tree, animated modals, and project showcase
-            </li>
-          </ul>
-        </ResumeSection>
-        <ResumeSection>
-          <ResumeSectionTitle>Skills</ResumeSectionTitle>
-          <ResumeSkillChips>
-            <span>JavaScript / TypeScript</span>
-            <span>React</span>
-            <span>Node.js</span>
-            <span>Python</span>
-            <span>SQL</span>
-            <span>Git</span>
-            <span>REST APIs</span>
-            <span>HTML & CSS</span>
-          </ResumeSkillChips>
         </ResumeSection>
       </ResumeBody>
     </ResumeModalContainer>

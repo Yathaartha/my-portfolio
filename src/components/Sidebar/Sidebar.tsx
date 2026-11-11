@@ -9,7 +9,7 @@ import copyIcon from "../../assets/icons/copy.png";
 import profilePicture from "../../assets/images/dummy-profile-pic.webp";
 import {
     BackButton, BioSection, BotSide, CardGrid, Container, CopyButton, DegreeTooltip,
-    ExperienceSection, InfoSection, MailSection, MailText, NameSection, PictureSection, PicWrapper,
+    ExperienceSection, InfoSection, MailSection, MainPanel, MailText, NameSection, PictureSection, PicWrapper,
     ProfilePicture, SchoolLabel, SchoolName, SchoolNameRow, SchoolSection, SidebarContent,
     SideSidebar, TooltipIcon, TopSide
 } from "./Sidebar.css";
@@ -50,12 +50,7 @@ export const Sidebar = ({
             <img src={backIcon} alt="return" />
           </BackButton>
         </SideSidebar>
-        <Container
-          direction="column"
-          style={{
-            background:
-              "linear-gradient(to bottom, rgba(239, 229, 216, 1), rgba(239, 229, 216, 0.7))",
-          }}>
+        <MainPanel direction="column">
           <TopSide>
             <PictureSection>
               <PicWrapper>
@@ -135,7 +130,7 @@ export const Sidebar = ({
               ))}
             </CardGrid>
           </BotSide>
-        </Container>
+        </MainPanel>
       </Container>
       {resumeModalOpen &&
         createPortal(

@@ -4,7 +4,7 @@ import nameCard from "../../assets/images/Namecard_Background_Fontaine_Judgment.
 import { GOLD, GRAY, MEDIA, NEUTRAL, RGBA } from "../../utils/constants";
 
 /** Sidebar width on phones in landscape (also used by the click-away overlay) */
-export const SIDEBAR_WIDTH_LANDSCAPE = "min(440px, 58vw)";
+export const SIDEBAR_WIDTH_LANDSCAPE = "min(600px, 80vw)";
 
 export const SidebarContent = styled.aside<{ $open?: boolean }>`
   position: fixed;
@@ -37,6 +37,21 @@ export const Container = styled.div<{
     direction === "column" ? "column" : "row"};
   width: 100%;
   height: 100%;
+`;
+
+export const MainPanel = styled(Container)`
+  background: linear-gradient(
+    to bottom,
+    rgba(239, 229, 216, 1),
+    rgba(239, 229, 216, 0.7)
+  );
+  min-width: 0;
+
+  ${MEDIA.mobileLandscape} {
+    /* Short screens: profile on the left, menu cards on the right, so the
+       whole menu fits without being cut off */
+    flex-direction: row;
+  }
 `;
 
 export const SideSidebar = styled.div`
@@ -101,10 +116,17 @@ export const TopSide = styled.div`
   gap: 15px;
 
   ${MEDIA.mobileLandscape} {
+    width: 36%;
     height: auto;
-    margin-top: 6px;
+    flex-shrink: 0;
+    min-height: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     padding: 10px;
-    gap: 10px;
+    gap: 8px;
+    overflow-y: auto;
   }
 `;
 
@@ -118,6 +140,7 @@ export const PictureSection = styled.div`
   gap: 15px;
 
   ${MEDIA.mobileLandscape} {
+    height: auto;
     gap: 6px;
   }
 `;
@@ -130,9 +153,9 @@ export const PicWrapper = styled.div`
   border: 10px groove ${RGBA.white(0.5)};
 
   ${MEDIA.mobileLandscape} {
-    width: 64px;
-    height: 64px;
-    border-width: 6px;
+    width: 56px;
+    height: 56px;
+    border-width: 5px;
   }
 `;
 
@@ -353,7 +376,10 @@ export const BotSide = styled.div`
   flex: 1;
 
   ${MEDIA.mobileLandscape} {
-    padding: 10px;
+    justify-content: center;
+    min-width: 0;
+    min-height: 0;
+    padding: 10px 10px calc(10px + env(safe-area-inset-bottom, 0px));
   }
 `;
 
@@ -365,7 +391,10 @@ export const CardGrid = styled.div`
   /* margin: 0 20px; */
 
   ${MEDIA.mobileLandscape} {
-    gap: 10px;
+    /* 3 x 3 grid whose rows share the available height */
+    height: 100%;
+    grid-template-rows: repeat(3, minmax(0, 1fr));
+    gap: 8px;
   }
 `;
 
@@ -386,6 +415,13 @@ export const SidebarCard = styled.div`
   &:hover {
     transform: translateY(-2px);
   }
+
+  ${MEDIA.mobileLandscape} {
+    min-width: 0;
+    min-height: 0;
+    gap: 2px;
+    padding: 4px 2px;
+  }
 `;
 
 export const CardIcon = styled.span`
@@ -403,13 +439,13 @@ export const CardIcon = styled.span`
   }
 
   ${MEDIA.mobileLandscape} {
-    width: 40px;
-    height: 40px;
-    padding: 4px 0;
+    width: 36px;
+    height: 36px;
+    padding: 0;
 
     img {
-      width: 40px;
-      height: 40px;
+      width: 36px;
+      height: 36px;
     }
   }
 `;
@@ -422,8 +458,11 @@ export const CardText = styled.span`
   padding-bottom: 6px;
 
   ${MEDIA.mobileLandscape} {
-    font-size: 12px;
-    padding-bottom: 4px;
+    /* Scale down on the narrowest phones so labels like "Achievements" fit */
+    font-size: clamp(9.5px, 1.7vw, 11px);
+    line-height: 1.2;
+    padding-bottom: 0;
+    white-space: nowrap;
   }
 `;
 

@@ -237,7 +237,7 @@ export const NavList = styled.div`
   gap: 8px;
 
   ${MEDIA.mobileLandscape} {
-    gap: 6px;
+    gap: 5px;
   }
 `;
 
@@ -277,8 +277,9 @@ export const NavItem = styled.button<{ $selected?: boolean }>`
   }
 
   ${MEDIA.mobileLandscape} {
-    padding: 8px 14px;
+    padding: 6px 14px;
     font-size: 0.95rem;
+    line-height: 1.3;
   }
 `;
 
@@ -450,6 +451,7 @@ export const ContactFormModal = styled(ModalContainer)`
   max-width: 90vw;
 
   ${MEDIA.mobileLandscape} {
+    box-sizing: border-box;
     min-width: 0;
     width: min(560px, calc(100vw - 40px));
   }
@@ -463,7 +465,7 @@ export const Form = styled.form`
   ${MEDIA.mobileLandscape} {
     /* Name + email side by side so the whole form fits a short screen */
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 10px 12px;
 
     & > :nth-child(n + 3) {
@@ -494,6 +496,9 @@ export const FormLabel = styled.label`
 `;
 
 export const FormInput = styled.input`
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
   padding: 10px 14px;
   background: ${RGBA.white(0.1)};
   border: 1px solid ${RGBA.white(0.2)};
@@ -512,11 +517,15 @@ export const FormInput = styled.input`
   }
 
   ${MEDIA.mobileLandscape} {
-    padding: 7px 12px;
+    padding: 6px 12px;
+    font-size: 16px;
   }
 `;
 
 export const FormTextarea = styled.textarea`
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
   padding: 10px 14px;
   background: ${RGBA.white(0.1)};
   border: 1px solid ${RGBA.white(0.2)};
@@ -537,12 +546,15 @@ export const FormTextarea = styled.textarea`
   }
 
   ${MEDIA.mobileLandscape} {
-    padding: 7px 12px;
+    padding: 6px 12px;
+    font-size: 16px;
     min-height: 64px;
   }
 `;
 
 export const SubmitButton = styled.button`
+  box-sizing: border-box;
+  width: 100%;
   padding: 12px 24px;
   background: ${RGBA.goldPrimary(0.4)};
   border: 1px solid ${GOLD.primary};
