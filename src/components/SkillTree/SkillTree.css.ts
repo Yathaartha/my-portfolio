@@ -1,6 +1,6 @@
 import styled, { keyframes } from "styled-components";
 
-import { DARK, FONT, GOLD, RGBA } from "../../utils/constants";
+import { DARK, FONT, GOLD, MEDIA, RGBA } from "../../utils/constants";
 
 const linePulse = keyframes`
   0%, 100% { opacity: 0.5; stroke-opacity: 0.6; }
@@ -13,8 +13,6 @@ export const SkillTreeContainer = styled.div`
   left: 0;
   right: 0;
   bottom: 0;
-  width: 100vw;
-  height: 100vh;
   background: url("/celestia-sky.png") no-repeat center center fixed;
   background-size: cover;
   background-color: ${DARK.navy};
@@ -26,7 +24,7 @@ export const SkillTreeContent = styled.div`
   position: relative;
   display: flex;
   width: 100%;
-  height: 100vh;
+  height: 100%;
   padding: 60px 20px 24px;
 `;
 
@@ -42,6 +40,14 @@ export const SkillsColumn = styled.div`
   padding: 20px;
   overflow-y: auto;
   z-index: 10;
+
+  ${MEDIA.mobileLandscape} {
+    top: 8px;
+    right: calc(8px + env(safe-area-inset-right, 0px));
+    bottom: 8px;
+    gap: 8px;
+    padding: 8px 12px;
+  }
 `;
 
 export const ConstellationSection = styled.section<{ $category: string }>`
@@ -50,6 +56,11 @@ export const ConstellationSection = styled.section<{ $category: string }>`
   align-items: flex-end;
   gap: 12px;
   margin-bottom: 24px;
+
+  ${MEDIA.mobileLandscape} {
+    gap: 8px;
+    margin-bottom: 12px;
+  }
 `;
 
 export const ConstellationTitle = styled.h2`
@@ -60,6 +71,11 @@ export const ConstellationTitle = styled.h2`
   margin: 0 0 8px;
   text-align: right;
   text-shadow: 0 0 12px ${RGBA.gold(0.4)};
+
+  ${MEDIA.mobileLandscape} {
+    font-size: 15px;
+    margin-bottom: 4px;
+  }
 `;
 
 export const NodesContainer = styled.div`
@@ -67,14 +83,15 @@ export const NodesContainer = styled.div`
   flex-direction: column;
   align-items: flex-end;
   gap: 12px;
+
+  ${MEDIA.mobileLandscape} {
+    gap: 8px;
+  }
 `;
 
 export const LinesClipWrapper = styled.div`
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
+  inset: 0;
   overflow: hidden;
   pointer-events: none;
   z-index: 0;
@@ -120,6 +137,12 @@ export const StarNode = styled.button`
     transform: scale(1.1);
     box-shadow: 0 0 16px ${RGBA.gold(0.6)};
   }
+
+  ${MEDIA.mobileLandscape} {
+    width: 46px;
+    height: 46px;
+    font-size: 20px;
+  }
 `;
 
 export const NodeWrapper = styled.div`
@@ -143,6 +166,10 @@ export const NodeLabel = styled.span`
   font-weight: 600;
   color: ${RGBA.cream(0.9)};
   white-space: nowrap;
+
+  ${MEDIA.mobileLandscape} {
+    font-size: 13px;
+  }
 `;
 
 export const NodeSubtitle = styled.span`
@@ -151,6 +178,10 @@ export const NodeSubtitle = styled.span`
   font-weight: 400;
   color: ${RGBA.cream(0.6)};
   white-space: nowrap;
+
+  ${MEDIA.mobileLandscape} {
+    font-size: 11px;
+  }
 `;
 
 export const SidePanel = styled.aside`
@@ -160,6 +191,7 @@ export const SidePanel = styled.aside`
   width: 360px;
   max-width: 90vw;
   height: 100vh;
+  height: 100dvh;
   background: ${RGBA.slate(0.2)};
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
@@ -168,6 +200,12 @@ export const SidePanel = styled.aside`
   overflow-y: auto;
   z-index: 100;
   box-shadow: 4px 0 24px ${RGBA.black(0.3)};
+
+  ${MEDIA.mobileLandscape} {
+    box-sizing: border-box;
+    width: min(360px, 50vw);
+    padding: 16px 40px 16px calc(16px + env(safe-area-inset-left, 0px));
+  }
 `;
 
 export const SidePanelTitle = styled.h3`
@@ -176,12 +214,20 @@ export const SidePanelTitle = styled.h3`
   font-weight: 600;
   color: ${GOLD.cream};
   margin: 0 0 8px;
+
+  ${MEDIA.mobileLandscape} {
+    font-size: 17px;
+  }
 `;
 
 export const SidePanelLevel = styled.p`
   font-size: 14px;
   color: ${RGBA.cream(0.7)};
   margin: 0 0 20px;
+
+  ${MEDIA.mobileLandscape} {
+    margin-bottom: 12px;
+  }
 `;
 
 export const SidePanelSection = styled.h4`
@@ -204,6 +250,11 @@ export const ProjectItem = styled.div`
   background: ${RGBA.white(0.05)};
   border-radius: 6px;
   border-left: 3px solid ${GOLD.muted};
+
+  ${MEDIA.mobileLandscape} {
+    padding: 10px;
+    margin-bottom: 8px;
+  }
 `;
 
 export const ProjectName = styled.div`
@@ -211,6 +262,10 @@ export const ProjectName = styled.div`
   color: ${GOLD.cream};
   font-size: 15px;
   margin-bottom: 4px;
+
+  ${MEDIA.mobileLandscape} {
+    font-size: 14px;
+  }
 `;
 
 export const ProjectDescription = styled.p`
@@ -235,6 +290,11 @@ export const ClosePanelButton = styled.button`
   &:hover {
     opacity: 0.8;
   }
+
+  ${MEDIA.mobileLandscape} {
+    top: 10px;
+    right: 12px;
+  }
 `;
 
 export const BackButton = styled.button`
@@ -254,6 +314,13 @@ export const BackButton = styled.button`
 
   &:hover {
     background: ${RGBA.slate(0.8)};
+  }
+
+  ${MEDIA.mobileLandscape} {
+    top: calc(10px + env(safe-area-inset-top, 0px));
+    left: calc(12px + env(safe-area-inset-left, 0px));
+    padding: 6px 14px;
+    font-size: 14px;
   }
 `;
 

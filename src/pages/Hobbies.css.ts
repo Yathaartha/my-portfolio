@@ -1,5 +1,5 @@
 import styled, { keyframes } from "styled-components";
-import { FONT, GOLD, GRAY, PURPLE, RGBA } from "../utils/constants";
+import { FONT, GOLD, GRAY, MEDIA, PURPLE, RGBA } from "../utils/constants";
 
 const fadeUp = keyframes`
   from { opacity: 0; transform: translateY(24px); }
@@ -18,6 +18,12 @@ export const HobbiesWrapper = styled.div`
   padding: 40px 24px 100px;
   min-height: 100%;
   font-family: ${FONT.primary};
+
+  ${MEDIA.mobileLandscape} {
+    /* Clear the floating menu (left), social icons (right) and page button (bottom) */
+    padding: 12px calc(56px + env(safe-area-inset-right, 0px)) 64px
+      calc(66px + env(safe-area-inset-left, 0px));
+  }
 `;
 
 export const HobbiesPanel = styled.div`
@@ -54,6 +60,11 @@ export const PanelHeader = styled.div`
   font-size: 18px;
   font-weight: 700;
   font-family: ${FONT.primary};
+
+  ${MEDIA.mobileLandscape} {
+    padding: 12px 16px 10px;
+    font-size: 16px;
+  }
 `;
 
 export const HeaderDiamond = styled.span`
@@ -84,6 +95,11 @@ export const IntroText = styled.p`
   @media (max-width: 640px) {
     padding: 20px 20px;
   }
+
+  ${MEDIA.mobileLandscape} {
+    padding: 16px 24px;
+    font-size: 14px;
+  }
 `;
 
 export const HobbiesGrid = styled.div`
@@ -95,6 +111,11 @@ export const HobbiesGrid = styled.div`
   @media (max-width: 700px) {
     grid-template-columns: 1fr;
     padding: 0 20px 24px;
+  }
+
+  ${MEDIA.mobileLandscape} {
+    gap: 12px;
+    padding: 0 24px 20px;
   }
 `;
 
@@ -135,6 +156,11 @@ export const HobbyCard = styled.div<{ $rarity?: number }>`
     background: ${RGBA.white(0.07)};
     box-shadow: 0 6px 20px ${RGBA.black(0.25)};
   }
+
+  ${MEDIA.mobileLandscape} {
+    gap: 12px;
+    padding: 14px;
+  }
 `;
 
 export const HobbyIconWrap = styled.div<{ $rarity?: number }>`
@@ -150,6 +176,13 @@ export const HobbyIconWrap = styled.div<{ $rarity?: number }>`
   border-radius: 10px;
   position: relative;
   z-index: 1;
+
+  ${MEDIA.mobileLandscape} {
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+    font-size: 22px;
+  }
 `;
 
 export const HobbyInfo = styled.div`
@@ -191,6 +224,10 @@ export const QuoteSection = styled.div`
 
   @media (max-width: 640px) {
     padding: 20px 20px 24px;
+  }
+
+  ${MEDIA.mobileLandscape} {
+    padding: 16px 24px 20px;
   }
 `;
 

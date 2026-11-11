@@ -12,6 +12,7 @@ import {
   CategoryButton,
   ContentWrapper,
   DetailCloseButton,
+  DetailContent,
   DetailPanel,
   DetailProjectIcon,
   DetailRarity,
@@ -100,15 +101,7 @@ function ProjectsPage() {
               animate={{ x: 0, opacity: 1 }}
               exit={{ x: "100%", opacity: 0 }}
               transition={{ type: "spring", stiffness: 300, damping: 30 }}>
-              <div
-                style={{
-                  position: "relative",
-                  padding: "24px",
-                  flex: 1,
-                  display: "flex",
-                  flexDirection: "column",
-                  minWidth: 0,
-                }}>
+              <DetailContent>
                 <DetailCloseButton
                   type="button"
                   onClick={() => setSelectedProject(null)}
@@ -147,7 +140,7 @@ function ProjectsPage() {
                   rel="noopener noreferrer">
                   View Project
                 </ExchangeButton>
-              </div>
+              </DetailContent>
             </DetailPanel>
           )}
         </AnimatePresence>

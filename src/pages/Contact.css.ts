@@ -1,5 +1,5 @@
 import styled, { keyframes } from "styled-components";
-import { DARK, FONT, GOLD, GRAY, RGBA } from "../utils/constants";
+import { DARK, FONT, GOLD, GRAY, MEDIA, RGBA } from "../utils/constants";
 
 const fadeUp = keyframes`
   from { opacity: 0; transform: translateY(24px); }
@@ -13,6 +13,12 @@ export const ContactWrapper = styled.div`
   padding: 40px 24px 100px;
   min-height: 100%;
   font-family: ${FONT.primary};
+
+  ${MEDIA.mobileLandscape} {
+    /* Clear the floating menu (left), social icons (right) and page button (bottom) */
+    padding: 12px calc(56px + env(safe-area-inset-right, 0px)) 64px
+      calc(66px + env(safe-area-inset-left, 0px));
+  }
 `;
 
 export const ContactPanel = styled.div`
@@ -49,6 +55,11 @@ export const PanelHeader = styled.div`
   font-size: 18px;
   font-weight: 700;
   font-family: ${FONT.primary};
+
+  ${MEDIA.mobileLandscape} {
+    padding: 12px 16px 10px;
+    font-size: 16px;
+  }
 `;
 
 export const HeaderDiamond = styled.span`
@@ -79,6 +90,11 @@ export const IntroText = styled.p`
   @media (max-width: 640px) {
     padding: 20px 20px;
   }
+
+  ${MEDIA.mobileLandscape} {
+    padding: 16px 24px;
+    font-size: 14px;
+  }
 `;
 
 export const ContactGrid = styled.div`
@@ -90,6 +106,10 @@ export const ContactGrid = styled.div`
   @media (max-width: 640px) {
     grid-template-columns: 1fr;
     padding: 0 20px 20px;
+  }
+
+  ${MEDIA.mobileLandscape} {
+    padding: 0 24px 16px;
   }
 `;
 
@@ -118,6 +138,10 @@ export const ContactCard = styled.a`
     min-width: 22px;
     color: ${GOLD.muted};
     fill: currentColor;
+  }
+
+  ${MEDIA.mobileLandscape} {
+    padding: 10px 14px;
   }
 `;
 
@@ -150,6 +174,10 @@ export const FormSection = styled.div`
   @media (max-width: 640px) {
     padding: 20px 20px 24px;
   }
+
+  ${MEDIA.mobileLandscape} {
+    padding: 16px 24px 20px;
+  }
 `;
 
 export const FormTitle = styled.h3`
@@ -168,6 +196,10 @@ export const Form = styled.form`
   display: flex;
   flex-direction: column;
   gap: 16px;
+
+  ${MEDIA.mobileLandscape} {
+    gap: 12px;
+  }
 `;
 
 export const FormGroup = styled.div`
@@ -225,6 +257,10 @@ export const FormTextarea = styled.textarea`
     border-color: ${GOLD.primary};
     background: ${RGBA.white(0.1)};
   }
+
+  ${MEDIA.mobileLandscape} {
+    min-height: 90px;
+  }
 `;
 
 export const SubmitButton = styled.button`
@@ -262,5 +298,10 @@ export const SubmitButton = styled.button`
 
   &:focus {
     outline: none;
+  }
+
+  ${MEDIA.mobileLandscape} {
+    padding: 10px 20px;
+    font-size: 15px;
   }
 `;

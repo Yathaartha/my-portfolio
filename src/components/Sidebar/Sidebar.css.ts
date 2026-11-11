@@ -1,7 +1,10 @@
 import styled from "styled-components";
 
 import nameCard from "../../assets/images/Namecard_Background_Fontaine_Judgment.webp?url";
-import { GOLD, GRAY, NEUTRAL, RGBA } from "../../utils/constants";
+import { GOLD, GRAY, MEDIA, NEUTRAL, RGBA } from "../../utils/constants";
+
+/** Sidebar width on phones in landscape (also used by the click-away overlay) */
+export const SIDEBAR_WIDTH_LANDSCAPE = "min(440px, 58vw)";
 
 export const SidebarContent = styled.aside<{ $open?: boolean }>`
   position: fixed;
@@ -18,6 +21,12 @@ export const SidebarContent = styled.aside<{ $open?: boolean }>`
   transform: translateX(${(p) => (p.$open ? "0" : "-100%")});
   transition: transform 0.3s ease;
   z-index: 100;
+
+  ${MEDIA.mobileLandscape} {
+    width: ${SIDEBAR_WIDTH_LANDSCAPE};
+    /* Keep wide content from peeking out while the sidebar is closed */
+    overflow: hidden;
+  }
 `;
 
 export const Container = styled.div<{
@@ -47,6 +56,13 @@ export const SideSidebar = styled.div`
   /* justify-content: center; */
   flex-direction: column;
   gap: 10px;
+
+  ${MEDIA.mobileLandscape} {
+    width: calc(44px + env(safe-area-inset-left, 0px));
+    min-width: 0;
+    flex-shrink: 0;
+    padding: 8px 4px 8px calc(4px + env(safe-area-inset-left, 0px));
+  }
 `;
 
 export const BackButton = styled.div`
@@ -63,6 +79,13 @@ export const BackButton = styled.div`
   img {
     width: 100%;
   }
+
+  ${MEDIA.mobileLandscape} {
+    width: 22px;
+    height: 22px;
+    border-width: 4px;
+    padding: 4px;
+  }
 `;
 
 export const TopSide = styled.div`
@@ -76,6 +99,13 @@ export const TopSide = styled.div`
   background-size: cover;
   padding: 15px;
   gap: 15px;
+
+  ${MEDIA.mobileLandscape} {
+    height: auto;
+    margin-top: 6px;
+    padding: 10px;
+    gap: 10px;
+  }
 `;
 
 export const PictureSection = styled.div`
@@ -86,6 +116,10 @@ export const PictureSection = styled.div`
   align-items: center;
   justify-content: center;
   gap: 15px;
+
+  ${MEDIA.mobileLandscape} {
+    gap: 6px;
+  }
 `;
 
 export const PicWrapper = styled.div`
@@ -94,6 +128,12 @@ export const PicWrapper = styled.div`
   border-radius: 50%;
   overflow: hidden;
   border: 10px groove ${RGBA.white(0.5)};
+
+  ${MEDIA.mobileLandscape} {
+    width: 64px;
+    height: 64px;
+    border-width: 6px;
+  }
 `;
 
 export const ProfilePicture = styled.img`
@@ -129,6 +169,10 @@ export const MailText = styled.a`
     text-decoration: none;
     color: ${NEUTRAL.white};
   }
+
+  ${MEDIA.mobileLandscape} {
+    font-size: 9px;
+  }
 `;
 
 export const CopyButton = styled.div`
@@ -156,6 +200,10 @@ export const InfoSection = styled.div`
   justify-content: center;
   gap: 10px;
   color: ${NEUTRAL.white};
+
+  ${MEDIA.mobileLandscape} {
+    gap: 4px;
+  }
 `;
 export const NameSection = styled.div`
   display: flex;
@@ -170,6 +218,10 @@ export const NameSection = styled.div`
     ${RGBA.black(0)}
   );
   padding: 2px 4px;
+
+  ${MEDIA.mobileLandscape} {
+    font-size: 15px;
+  }
 `;
 
 export const SchoolSection = styled.div`
@@ -184,18 +236,30 @@ export const SchoolSection = styled.div`
     ${RGBA.black(0)}
   );
   padding: 2px 4px;
+
+  ${MEDIA.mobileLandscape} {
+    font-size: 12px;
+  }
 `;
 
 export const SchoolLabel = styled.span`
   font-size: 14px;
   font-weight: 600;
   color: ${NEUTRAL.white};
+
+  ${MEDIA.mobileLandscape} {
+    font-size: 12px;
+  }
 `;
 
 export const SchoolName = styled.span`
   font-size: 14px;
   font-weight: 600;
   color: ${NEUTRAL.white};
+
+  ${MEDIA.mobileLandscape} {
+    font-size: 12px;
+  }
 `;
 
 export const SchoolNameRow = styled.div`
@@ -230,6 +294,12 @@ export const TooltipIcon = styled.button`
   &:focus {
     outline: none;
   }
+
+  ${MEDIA.mobileLandscape} {
+    width: 16px;
+    height: 16px;
+    font-size: 12px;
+  }
 `;
 
 export const DegreeTooltip = styled.div`
@@ -254,6 +324,10 @@ export const BioSection = styled.div`
   text-align: justify;
   width: 100%;
   font-size: 12px;
+
+  ${MEDIA.mobileLandscape} {
+    font-size: 11px;
+  }
 `;
 
 export const ExperienceSection = styled.div`
@@ -262,6 +336,10 @@ export const ExperienceSection = styled.div`
   text-align: justify;
   width: 100%;
   font-size: 14px;
+
+  ${MEDIA.mobileLandscape} {
+    font-size: 12px;
+  }
 `;
 
 export const BotSide = styled.div`
@@ -273,6 +351,10 @@ export const BotSide = styled.div`
   padding: 12px;
   overflow-y: auto;
   flex: 1;
+
+  ${MEDIA.mobileLandscape} {
+    padding: 10px;
+  }
 `;
 
 export const CardGrid = styled.div`
@@ -281,6 +363,10 @@ export const CardGrid = styled.div`
   gap: 20px;
   width: 100%;
   /* margin: 0 20px; */
+
+  ${MEDIA.mobileLandscape} {
+    gap: 10px;
+  }
 `;
 
 export const SidebarCard = styled.div`
@@ -315,6 +401,17 @@ export const CardIcon = styled.span`
     width: 60px;
     height: 60px;
   }
+
+  ${MEDIA.mobileLandscape} {
+    width: 40px;
+    height: 40px;
+    padding: 4px 0;
+
+    img {
+      width: 40px;
+      height: 40px;
+    }
+  }
 `;
 
 export const CardText = styled.span`
@@ -323,5 +420,10 @@ export const CardText = styled.span`
   color: ${NEUTRAL.white};
   text-align: center;
   padding-bottom: 6px;
+
+  ${MEDIA.mobileLandscape} {
+    font-size: 12px;
+    padding-bottom: 4px;
+  }
 `;
 

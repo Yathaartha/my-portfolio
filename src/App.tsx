@@ -1,6 +1,7 @@
 import { Toaster } from "react-hot-toast";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Homepage from "./Homepage";
+import { RotateDeviceOverlay } from "./components/RotateDeviceOverlay/RotateDeviceOverlay";
 import About from "./pages/About";
 import Projects from "./pages/Projects";
 import Contact from "./pages/Contact";
@@ -10,6 +11,7 @@ import SkillTreePage from "./pages/SkillTree";
 function App() {
   return (
     <BrowserRouter>
+      <RotateDeviceOverlay />
       <Toaster position="bottom-center" />
       <Routes>
         <Route path="/" element={<Homepage />} />

@@ -71,3 +71,14 @@ export const RGBA = {
   dark: (alpha: number) => `rgba(26, 30, 36, ${alpha})`,
   gray: (alpha: number) => `rgba(93, 102, 122, ${alpha})`,
 } as const;
+
+/**
+ * Shared media queries. Phones are supported in landscape only; portrait
+ * phones get a "rotate your device" overlay (see RotateDeviceOverlay).
+ */
+export const MEDIA = {
+  /** Phone held sideways: landscape with a short viewport */
+  mobileLandscape: "@media (orientation: landscape) and (max-height: 500px)",
+  /** Phone held upright */
+  mobilePortrait: "@media (orientation: portrait) and (max-width: 767px)",
+} as const;

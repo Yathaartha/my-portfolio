@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 import cornerSparkleIcon from "../../assets/icons/corner-sparkle.svg?url";
-import { DARK, FONT, GOLD, GRAY, NEUTRAL, RGBA } from "../../utils/constants";
+import { DARK, FONT, GOLD, GRAY, MEDIA, NEUTRAL, RGBA } from "../../utils/constants";
 
 export const ModalOverlay = styled.div`
   position: fixed;
@@ -12,6 +12,10 @@ export const ModalOverlay = styled.div`
   justify-content: center;
   z-index: 1001;
   padding: 24px;
+
+  ${MEDIA.mobileLandscape} {
+    padding: 12px;
+  }
 `;
 
 export const ResumeModalContainer = styled.div`
@@ -19,6 +23,7 @@ export const ResumeModalContainer = styled.div`
   width: 100%;
   max-width: 700px;
   max-height: 90vh;
+  max-height: 90dvh;
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -28,6 +33,10 @@ export const ResumeModalContainer = styled.div`
     inset 0 0 0 1px ${NEUTRAL.modalBorder},
     0 8px 32px ${RGBA.black(0.3)};
   color: ${DARK.slate};
+
+  ${MEDIA.mobileLandscape} {
+    max-height: calc(100dvh - 24px);
+  }
 `;
 
 export const Corner = styled.div`
@@ -78,6 +87,11 @@ export const CloseButton = styled.button`
   &:focus {
     outline: none;
   }
+
+  ${MEDIA.mobileLandscape} {
+    top: 6px;
+    right: 6px;
+  }
 `;
 
 export const ResumeName = styled.h1`
@@ -87,6 +101,11 @@ export const ResumeName = styled.h1`
   font-weight: 700;
   color: ${DARK.slate};
   text-align: center;
+
+  ${MEDIA.mobileLandscape} {
+    margin: 14px 40px 2px;
+    font-size: 20px;
+  }
 `;
 
 export const ResumeContact = styled.p`
@@ -106,6 +125,11 @@ export const ResumeContact = styled.p`
       border-bottom-color: #c8a84b;
     }
   }
+
+  ${MEDIA.mobileLandscape} {
+    margin: 0 24px 8px;
+    font-size: 11px;
+  }
 `;
 
 export const TitleDivider = styled.div`
@@ -119,6 +143,11 @@ export const TitleDivider = styled.div`
     ${RGBA.gray(0.3)} 80%,
     transparent
   );
+
+  ${MEDIA.mobileLandscape} {
+    width: calc(100% - 48px);
+    margin-bottom: 12px;
+  }
 `;
 
 export const ResumeBody = styled.div`
@@ -146,6 +175,10 @@ export const ResumeBody = styled.div`
   em {
     font-size: 12px;
     color: ${GRAY.medium};
+  }
+
+  ${MEDIA.mobileLandscape} {
+    padding: 0 24px 16px;
   }
 `;
 

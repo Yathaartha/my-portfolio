@@ -1,5 +1,5 @@
 import styled, { keyframes } from "styled-components";
-import { DARK, FONT, GOLD, GRAY, RGBA } from "../utils/constants";
+import { DARK, FONT, GOLD, GRAY, MEDIA, RGBA } from "../utils/constants";
 
 const fadeUp = keyframes`
   from { opacity: 0; transform: translateY(24px); }
@@ -13,6 +13,12 @@ export const AboutWrapper = styled.div`
   padding: 40px 24px 100px;
   min-height: 100%;
   font-family: ${FONT.primary};
+
+  ${MEDIA.mobileLandscape} {
+    /* Clear the floating menu (left), social icons (right) and page button (bottom) */
+    padding: 12px calc(56px + env(safe-area-inset-right, 0px)) 64px
+      calc(66px + env(safe-area-inset-left, 0px));
+  }
 `;
 
 export const ProfilePanel = styled.div`
@@ -49,6 +55,11 @@ export const PanelHeader = styled.div`
   font-size: 18px;
   font-weight: 700;
   font-family: ${FONT.primary};
+
+  ${MEDIA.mobileLandscape} {
+    padding: 12px 16px 10px;
+    font-size: 16px;
+  }
 `;
 
 export const HeaderDiamond = styled.span`
@@ -79,6 +90,11 @@ export const HeroSection = styled.div`
     text-align: center;
     padding: 24px 20px;
   }
+
+  ${MEDIA.mobileLandscape} {
+    gap: 20px;
+    padding: 18px 24px;
+  }
 `;
 
 export const HeroAvatar = styled.div`
@@ -95,6 +111,12 @@ export const HeroAvatar = styled.div`
     height: 100%;
     object-fit: cover;
   }
+
+  ${MEDIA.mobileLandscape} {
+    width: 88px;
+    height: 88px;
+    min-width: 88px;
+  }
 `;
 
 export const HeroInfo = styled.div`
@@ -110,6 +132,10 @@ export const HeroName = styled.h1`
   color: ${GOLD.cream};
   font-family: ${FONT.primary};
   letter-spacing: 0.5px;
+
+  ${MEDIA.mobileLandscape} {
+    font-size: 22px;
+  }
 `;
 
 export const HeroTitle = styled.div`
@@ -137,6 +163,10 @@ export const SectionContainer = styled.div`
 
   @media (max-width: 640px) {
     padding: 20px 20px;
+  }
+
+  ${MEDIA.mobileLandscape} {
+    padding: 16px 24px;
   }
 `;
 

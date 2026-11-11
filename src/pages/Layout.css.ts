@@ -1,7 +1,8 @@
 import styled from "styled-components";
 
 import cornerSparkleIcon from "../assets/icons/corner-sparkle.svg?url";
-import { DARK, FONT, GOLD, GRAY, NEUTRAL, RGBA } from "../utils/constants";
+import { SIDEBAR_WIDTH_LANDSCAPE } from "../components/Sidebar/Sidebar.css";
+import { DARK, FONT, GOLD, GRAY, MEDIA, NEUTRAL, RGBA } from "../utils/constants";
 
 export const HomepageContainer = styled.div`
   position: fixed;
@@ -9,8 +10,6 @@ export const HomepageContainer = styled.div`
   right: 0;
   bottom: 0;
   left: 0;
-  width: 100vw;
-  height: 100vh;
   overflow: hidden;
   background: url("/celestia-sky.png") no-repeat center center;
   background-size: cover;
@@ -62,6 +61,13 @@ export const PageButton = styled.button`
   &:focus-visible {
     outline: none;
   }
+
+  ${MEDIA.mobileLandscape} {
+    bottom: calc(10px + env(safe-area-inset-bottom, 0px));
+    min-width: 170px;
+    padding: 8px 28px;
+    font-size: 14px;
+  }
 `;
 
 export const DiamondIcon = styled.span`
@@ -75,12 +81,23 @@ export const DiamondIcon = styled.span`
   box-shadow: 0 0 0 1px ${RGBA.slate(0.3)};
   position: absolute;
   left: 20px;
+
+  ${MEDIA.mobileLandscape} {
+    width: 14px;
+    height: 14px;
+    left: 14px;
+  }
 `;
 
 export const Checkmark = styled.svg`
   transform: rotate(-45deg);
   width: 20px;
   height: 20px;
+
+  ${MEDIA.mobileLandscape} {
+    width: 14px;
+    height: 14px;
+  }
 `;
 
 export const ModalOverlay = styled.div`
@@ -91,6 +108,16 @@ export const ModalOverlay = styled.div`
   align-items: center;
   justify-content: center;
   z-index: 1000;
+
+  ${MEDIA.mobileLandscape} {
+    /* Let tall modals scroll instead of being cut off on short screens */
+    overflow-y: auto;
+    padding: 20px;
+
+    & > * {
+      margin: auto;
+    }
+  }
 `;
 
 export const ModalContainer = styled.div`
@@ -125,6 +152,11 @@ export const ModalContainer = styled.div`
     pointer-events: none; /* Make sure it doesn't block clicks */
     opacity: 0.6;
   }
+
+  ${MEDIA.mobileLandscape} {
+    min-width: min(360px, calc(100vw - 40px));
+    padding: 14px 16px;
+  }
 `;
 
 export const ModalTitle = styled.div`
@@ -137,6 +169,12 @@ export const ModalTitle = styled.div`
   font-size: 18px;
   font-weight: 700;
   font-family: ${FONT.primary};
+
+  ${MEDIA.mobileLandscape} {
+    gap: 10px;
+    margin-bottom: 14px;
+    font-size: 15px;
+  }
 `;
 
 export const TitleDivider = styled.div`
@@ -151,6 +189,11 @@ export const TitleDivider = styled.div`
   );
   margin-bottom: 24px;
   margin-top: -16px;
+
+  ${MEDIA.mobileLandscape} {
+    margin-top: -8px;
+    margin-bottom: 12px;
+  }
 `;
 
 export const TitleDecoration = styled.span`
@@ -179,12 +222,23 @@ export const CloseButton = styled.button`
   &:focus {
     outline: none;
   }
+
+  ${MEDIA.mobileLandscape} {
+    top: 8px;
+    right: 8px;
+    width: 28px;
+    height: 28px;
+  }
 `;
 
 export const NavList = styled.div`
   display: flex;
   flex-direction: column;
   gap: 8px;
+
+  ${MEDIA.mobileLandscape} {
+    gap: 6px;
+  }
 `;
 
 export const NavItem = styled.button<{ $selected?: boolean }>`
@@ -220,6 +274,11 @@ export const NavItem = styled.button<{ $selected?: boolean }>`
     border: 2px solid ${GOLD.cream};
     color: ${GOLD.creamLight};
     box-shadow: inset 0 0 10px ${RGBA.creamLight(0.1)};
+  }
+
+  ${MEDIA.mobileLandscape} {
+    padding: 8px 14px;
+    font-size: 0.95rem;
   }
 `;
 
@@ -304,6 +363,18 @@ export const HamburgerButton = styled.button`
     padding: 4px;
     filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.5));
   }
+
+  ${MEDIA.mobileLandscape} {
+    top: 6px;
+    left: calc(6px + env(safe-area-inset-left, 0px));
+    width: 52px;
+    height: 52px;
+
+    img {
+      width: 52px;
+      height: 52px;
+    }
+  }
 `;
 
 export const SidebarOverlay = styled.div<{ $open?: boolean }>`
@@ -317,6 +388,10 @@ export const SidebarOverlay = styled.div<{ $open?: boolean }>`
   /* opacity: ${(p) => (p.$open ? 1 : 0)}; */
   pointer-events: ${(p) => (p.$open ? "auto" : "none")};
   transition: opacity 1s ease;
+
+  ${MEDIA.mobileLandscape} {
+    left: ${SIDEBAR_WIDTH_LANDSCAPE};
+  }
 `;
 
 export const MainContent = styled.main`
@@ -361,23 +436,50 @@ export const ContactMeButton = styled.button`
   &:focus-visible {
     outline: none;
   }
+
+  ${MEDIA.mobileLandscape} {
+    bottom: calc(10px + env(safe-area-inset-bottom, 0px));
+    left: calc(12px + env(safe-area-inset-left, 0px));
+    padding: 8px 16px;
+    font-size: 12px;
+  }
 `;
 
 export const ContactFormModal = styled(ModalContainer)`
   min-width: 400px;
   max-width: 90vw;
+
+  ${MEDIA.mobileLandscape} {
+    min-width: 0;
+    width: min(560px, calc(100vw - 40px));
+  }
 `;
 
 export const Form = styled.form`
   display: flex;
   flex-direction: column;
   gap: 16px;
+
+  ${MEDIA.mobileLandscape} {
+    /* Name + email side by side so the whole form fits a short screen */
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px 12px;
+
+    & > :nth-child(n + 3) {
+      grid-column: 1 / -1;
+    }
+  }
 `;
 
 export const FormGroup = styled.div`
   display: flex;
   flex-direction: column;
   gap: 6px;
+
+  ${MEDIA.mobileLandscape} {
+    gap: 4px;
+  }
 `;
 
 export const FormLabel = styled.label`
@@ -385,6 +487,10 @@ export const FormLabel = styled.label`
   font-weight: 600;
   color: ${GOLD.cream};
   font-family: ${FONT.primary};
+
+  ${MEDIA.mobileLandscape} {
+    font-size: 12px;
+  }
 `;
 
 export const FormInput = styled.input`
@@ -403,6 +509,10 @@ export const FormInput = styled.input`
   &:focus {
     outline: none;
     border-color: ${GOLD.primary};
+  }
+
+  ${MEDIA.mobileLandscape} {
+    padding: 7px 12px;
   }
 `;
 
@@ -425,6 +535,11 @@ export const FormTextarea = styled.textarea`
     outline: none;
     border-color: ${GOLD.primary};
   }
+
+  ${MEDIA.mobileLandscape} {
+    padding: 7px 12px;
+    min-height: 64px;
+  }
 `;
 
 export const SubmitButton = styled.button`
@@ -445,6 +560,11 @@ export const SubmitButton = styled.button`
   &:focus {
     outline: none;
   }
+
+  ${MEDIA.mobileLandscape} {
+    padding: 8px 20px;
+    font-size: 14px;
+  }
 `;
 
 export const SocialIcons = styled.div`
@@ -455,6 +575,12 @@ export const SocialIcons = styled.div`
   flex-direction: column;
   gap: 12px;
   align-items: center;
+
+  ${MEDIA.mobileLandscape} {
+    bottom: calc(10px + env(safe-area-inset-bottom, 0px));
+    right: calc(12px + env(safe-area-inset-right, 0px));
+    gap: 8px;
+  }
 `;
 
 export const SocialIconLink = styled.a`
@@ -479,6 +605,16 @@ export const SocialIconLink = styled.a`
   svg {
     width: 20px;
     height: 20px;
+  }
+
+  ${MEDIA.mobileLandscape} {
+    width: 32px;
+    height: 32px;
+
+    svg {
+      width: 16px;
+      height: 16px;
+    }
   }
 `;
 

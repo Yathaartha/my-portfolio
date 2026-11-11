@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 import celestiaDark from "../../assets/images/celestia-dark.png?url";
-import { DARK, FONT, GOLD, GRAY, PURPLE, RGBA } from "../../utils/constants";
+import { DARK, FONT, GOLD, GRAY, MEDIA, PURPLE, RGBA } from "../../utils/constants";
 
 const RARITY_GRADIENTS: Record<number, string> = {
   3: `linear-gradient(135deg, ${GRAY.medium} 0%, ${DARK.slateBlue} 50%, ${DARK.slate} 100%)`,
@@ -15,6 +15,7 @@ export const ProjectsContainer = styled.div`
   width: 100%;
   height: 100%;
   min-height: 100vh;
+  min-height: 100dvh;
   font-family: ${FONT.primary};
 
   &::before {
@@ -42,6 +43,11 @@ export const TimerBar = styled.div`
   font-weight: 600;
   text-align: center;
   z-index: 10;
+
+  ${MEDIA.mobileLandscape} {
+    padding: 8px 16px;
+    font-size: 15px;
+  }
 `;
 
 export const LeftSidebar = styled.aside`
@@ -58,6 +64,13 @@ export const LeftSidebar = styled.aside`
   display: flex;
   flex-direction: column;
   gap: 4px;
+
+  ${MEDIA.mobileLandscape} {
+    width: calc(140px + env(safe-area-inset-left, 0px));
+    min-width: calc(140px + env(safe-area-inset-left, 0px));
+    padding: 52px 0 12px env(safe-area-inset-left, 0px);
+    overflow-y: auto;
+  }
 `;
 
 export const CategoryButton = styled.button<{ $active?: boolean }>`
@@ -79,6 +92,12 @@ export const CategoryButton = styled.button<{ $active?: boolean }>`
     background: ${RGBA.border(0.2)};
     color: ${GOLD.cream};
   }
+
+  ${MEDIA.mobileLandscape} {
+    padding: 10px 12px;
+    margin: 0 8px;
+    font-size: 13px;
+  }
 `;
 
 export const ContentWrapper = styled.div`
@@ -95,6 +114,10 @@ export const GridArea = styled.main`
   overflow-y: auto;
   min-width: 0;
   font-family: ${FONT.primary};
+
+  ${MEDIA.mobileLandscape} {
+    padding: 52px calc(16px + env(safe-area-inset-right, 0px)) 16px 16px;
+  }
 `;
 
 export const ProjectGrid = styled.div`
@@ -109,6 +132,11 @@ export const ProjectGrid = styled.div`
   }
   @media (max-width: 768px) {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  ${MEDIA.mobileLandscape} {
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 12px;
   }
 `;
 
@@ -145,6 +173,10 @@ export const CardIcon = styled.div`
   transform: translate(-50%, -60%);
   font-size: 48px;
   opacity: 0.9;
+
+  ${MEDIA.mobileLandscape} {
+    font-size: 34px;
+  }
 `;
 
 export const CardNameBar = styled.div`
@@ -156,6 +188,11 @@ export const CardNameBar = styled.div`
   font-size: 14px;
   font-weight: 600;
   text-align: center;
+
+  ${MEDIA.mobileLandscape} {
+    padding: 8px 10px;
+    font-size: 12px;
+  }
 `;
 
 export const DetailPanel = styled.aside`
@@ -164,6 +201,7 @@ export const DetailPanel = styled.aside`
   min-width: 280px;
   max-width: 480px;
   height: 100vh;
+  height: 100dvh;
   background: linear-gradient(
     180deg,
     ${RGBA.slate(0.98)} 0%,
@@ -178,6 +216,25 @@ export const DetailPanel = styled.aside`
   display: flex;
   flex-direction: column;
   box-shadow: -8px 0 32px ${RGBA.black(0.4)};
+
+  ${MEDIA.mobileLandscape} {
+    /* Desktop min-width pushes the panel off-screen on phones */
+    min-width: 0;
+    padding: 40px env(safe-area-inset-right, 0px) 0 0;
+  }
+`;
+
+export const DetailContent = styled.div`
+  position: relative;
+  padding: 24px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+
+  ${MEDIA.mobileLandscape} {
+    padding: 12px 16px calc(16px + env(safe-area-inset-bottom, 0px));
+  }
 `;
 
 export const DetailCloseButton = styled.button`
@@ -194,6 +251,11 @@ export const DetailCloseButton = styled.button`
 
   &:hover {
     opacity: 0.8;
+  }
+
+  ${MEDIA.mobileLandscape} {
+    top: 4px;
+    right: 8px;
   }
 `;
 
@@ -215,6 +277,13 @@ export const DetailProjectIcon = styled.div`
     height: 100%;
     object-fit: contain;
   }
+
+  ${MEDIA.mobileLandscape} {
+    width: 72px;
+    height: 72px;
+    margin-bottom: 12px;
+    font-size: 44px;
+  }
 `;
 
 export const DetailTitle = styled.h2`
@@ -225,6 +294,11 @@ export const DetailTitle = styled.h2`
   margin: 0 0 8px;
   padding-right: 36px;
   text-align: center;
+
+  ${MEDIA.mobileLandscape} {
+    font-size: 17px;
+    padding-right: 0;
+  }
 `;
 
 export const DetailRarity = styled.div`
@@ -232,6 +306,10 @@ export const DetailRarity = styled.div`
   color: ${GOLD.muted};
   margin-bottom: 24px;
   text-align: center;
+
+  ${MEDIA.mobileLandscape} {
+    margin-bottom: 14px;
+  }
 `;
 
 export const LoreLabel = styled.h3`
@@ -250,6 +328,12 @@ export const LoreText = styled.p`
   line-height: 1.7;
   color: ${RGBA.cream(0.95)};
   margin: 0 0 24px;
+
+  ${MEDIA.mobileLandscape} {
+    font-size: 13px;
+    line-height: 1.6;
+    margin-bottom: 16px;
+  }
 `;
 
 export const AttributesLabel = styled.h3`
@@ -274,11 +358,22 @@ export const AttributeItem = styled.div`
   border-radius: 4px;
   font-size: 14px;
   color: ${RGBA.cream(0.9)};
+
+  ${MEDIA.mobileLandscape} {
+    flex-wrap: wrap;
+    gap: 2px 8px;
+    padding: 8px 10px;
+    font-size: 12px;
+  }
 `;
 
 export const AttributeName = styled.span`
   color: ${RGBA.cream(0.7)};
   min-width: 140px;
+
+  ${MEDIA.mobileLandscape} {
+    min-width: 0;
+  }
 `;
 
 export const AttributeValue = styled.span`
@@ -323,6 +418,12 @@ export const ExchangeButton = styled.a`
       0 6px 20px ${RGBA.goldPrimary(0.4)},
       inset 0 1px 0 ${RGBA.white(0.4)};
     transform: translateY(-1px);
+  }
+
+  ${MEDIA.mobileLandscape} {
+    margin-top: 16px;
+    padding: 10px 16px;
+    font-size: 15px;
   }
 `;
 
